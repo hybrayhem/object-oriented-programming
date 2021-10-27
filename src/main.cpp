@@ -1,133 +1,249 @@
 #include "main.h"
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 #include <iostream>
+#include <string>
 #include <vector>
 using namespace std;
 
 int main() {
+    // elements of move
     int y, x;
     char direction;
+
+    // input buffers
     int success;
-    char selection;
-    int move;
+    char selection = 0;
+    string filename;
+    vector<int> move;
 
     srand(time(NULL));
 
     vector<vector<BoardItem>> board;
     cout << "▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧\n\n";
+
+    // ask and fill from predefined boards
     set_board(board);
+    print_board(board);
 
-    cout << "1. Human Player Game\n"
-         << "2. Computer Game\n";
-    selection = get_selection("Please select an operation: ", '1', '2');
+    do {
+        // MENU
+        cout << "\n1. Human Player Game\n"
+             << "2. Computer Game\n"
+             << "3. Load Game File\n"
+             << "0. Exit\n";
+        selection = get_selection("Please select an operation: ", '0', '3');
 
-    if (selection == '1') {
-        cout << "\n> INFO: movement format is [vertical_index][horizontal_index]-[u, d, l or r]\n> ex: C2-L, A5-U\n> type 0 for exit the game\n\n\n";
-
-        while (true) {
-            print_board(board);
-
-            if (you_won(board)) break;
-
-            do {
-                cout << "Enter your command(C2-L, A5-U): ";
-            } while (get_command(y, x, direction, get_score(board)) != 1);
-            
-            switch (direction) {
-            case 'L':
-                success = move_left(board, y, x);
-                break;
-            case 'R':
-                success = move_right(board, y, x);
-                break;
-            case 'U':
-                success = move_up(board, y, x);
-                break;
-            case 'D':
-                success = move_down(board, y, x);
-                break;
-            }
-            if (!success) printf("\n> OOPS! I can't move to that direction!\n\n"); /* for invalid movements */
+        // LOAD GAME
+        if (selection == '3') {
+            cout << "Enter file name: ";
+            getline(cin, filename);
+            cout << endl;
+            load_game(selection, board, filename);
         }
-    } else if (selection == '2') {
-        while (true) {
-            print_board(board);
 
-            if (you_won(board)) break;
+        // HUMAN PLAYER
+        if (selection == '1') {
+            cout << "\n> INFO: movement format is [vertical_index][horizontal_index]-[u, d, l or r]\n> ex: C2-L, A5-U\n> type 0 for exit the menu \n> type SAVE for save current game\n\n\n";
 
-            move = get_random_valid_move(board);
-            // cout << "move: " << move << " " << move / 100 << " " << (move / 10) % 10 << " " << move % 10 << endl;
+            while (true) {
+                print_board(board);
 
-            switch (move % 10) {
-            case 1:
-                success = move_left(board, move / 100, (move / 10) % 10); // divide move 234 input to 2, 3, 4
-                break;
-            case 2:
-                success = move_right(board, move / 100, (move / 10) % 10);
-                break;
-            case 3:
-                success = move_up(board, move / 100, (move / 10) % 10);
-                break;
-            case 4:
-                success = move_down(board, move / 100, (move / 10) % 10);
-                break;
+                if (you_won(board)) finish(board, 1);
+
+                do {
+                    cout << "Enter your command(C2-L, A5-U, SAVE): ";
+                    success = get_command(y, x, direction, board);
+                } while (success == 0);
+                if (success == -1) break;
+
+                switch (direction) {
+                case 'L':
+                    success = move_left(board, y, x);
+                    break;
+                case 'R':
+                    success = move_right(board, y, x);
+                    break;
+                case 'U':
+                    success = move_up(board, y, x);
+                    break;
+                case 'D':
+                    success = move_down(board, y, x);
+                    break;
+                }
+                if (!success) cerr << "\n> OOPS! I can't move to that direction!\n\n"; // for invalid movements
             }
-            if (!success) printf("\n> OOPS! I can't move to that direction!\n\n"); /* for invalid movements */
         }
+        // COMPUTER GAME
+        else if (selection == '2') {
+            while (true) {
+                print_board(board);
+
+                if (you_won(board)) finish(board, 2);
+
+                move = get_random_valid_move(board);
+
+                y = move[0];
+                x = move[1];
+                cout << "Moving... " << (char)(x + 65) << y + 1 << "-"; // print last command done
+
+                switch (move[2]) {
+                case 1:
+                    success = move_left(board, y, x);
+                    cout << "L";
+                    break;
+                case 2:
+                    success = move_right(board, y, x);
+                    cout << "R";
+                    break;
+                case 3:
+                    success = move_up(board, y, x);
+                    cout << "U";
+                    break;
+                case 4:
+                    success = move_down(board, y, x);
+                    cout << "D";
+                    break;
+                }
+                cout << "\n\n";
+
+                if (!success) cerr << "\n> OOPS, something went wrong!\n\n"; // for invalid movements
+            }
+        }
+    } while (selection != '0');
+
+    return 0;
+}
+
+void load_game(char &gameType, vector<vector<BoardItem>> &board, string filename) {
+    ifstream inStream;
+    string buffer;
+
+    inStream.open(filename, fstream::in);
+    if (inStream.fail()) {
+        cerr << "Couldn't open file: " << filename << endl;
+        exit(0);
     }
-    cout << "\nGame over.\n"; /* say bye to user */
 
+    getline(inStream, buffer);
+    gameType = buffer[0];
+
+    board.clear(); // delete all items of old board
+    while (!inStream.eof()) {
+        vector<BoardItem> tempBoard;
+        getline(inStream, buffer);
+        for (auto c: buffer){
+            switch (c) {
+            case '-':
+                tempBoard.push_back(BoardItem::EMPTY);
+                break;
+            case 'P':
+                tempBoard.push_back(BoardItem::PEG);
+                break;
+            case '.':
+                tempBoard.push_back(BoardItem::DOT);
+                break;
+            }
+        }
+        if (!tempBoard.empty()) board.push_back(tempBoard); // avoid pushing empty items, in case of empty file
+    }
+    inStream.close();
+}
+
+void save_game(int gameType, const vector<vector<BoardItem>> &board, string filename) {
+    ofstream outStream;
+
+    outStream.open(filename, fstream::out);
+    if (outStream.fail()) {
+        cerr << "Couldn't open file: " << filename << endl;
+        exit(0);
+    }
+
+    outStream << gameType << endl;
+    for (size_t i = 0; i < board.size(); i++) {
+        for (size_t j = 0; j < board[0].size(); j++) {
+            switch (board[i][j]) {
+            case BoardItem::EMPTY:
+                outStream << "-";
+                break;
+            case BoardItem::PEG:
+                outStream << "P";
+                break;
+            case BoardItem::DOT:
+                outStream << ".";
+                break;
+            }
+        }
+        outStream << endl;
+    }
+    outStream.close();
+}
+
+void finish(const vector<vector<BoardItem>> &board, int gameType) {
+    char save;
+    string filename;
+
+    cout << "\nGame over.\n"; // end message
     cout << get_score(board) << " points.\n\n"
          << endl;
-    return 0;
+
+    save = get_selection("Do you want to save the game? (y/n)\n", 'a', 'z');
+    if (save == 'y') {
+        cout << "Enter file name: ";
+        getline(cin, filename);
+        cout << endl;
+        save_game(gameType, board, filename);
+    }
+    exit(1);
 }
 
 int get_score(const vector<vector<BoardItem>> &board) {
     int score = 0;
 
-    int h = board.size();
-    int w = board[0].size();
-
-    for (int i = 0; i < h; i++) {
-        for (int j = 0; j < w; j++) {
+    for (size_t i = 0; i < board.size(); i++) {
+        for (size_t j = 0; j < board[0].size(); j++) {
             if (board[i][j] == BoardItem::PEG) score++;
         }
     }
     return score;
 }
 
-int get_random_valid_move(const vector<vector<BoardItem>> &board) {
-    int h = board.size();
-    int w = board[0].size();
+vector<int> get_random_valid_move(const vector<vector<BoardItem>> &board) {
+    vector<vector<int>> moves;
 
-    vector<int> moves;
-
-    for (int i = 0; i < h; i++) {
-        for (int j = 0; j < w; j++) {
-            if (can_move_to_left(board, i, j)) { //ij1
-                moves.push_back(i * 100 + j * 10 + 1);
+    for (size_t i = 0; i < board.size(); i++) {
+        for (size_t j = 0; j < board[0].size(); j++) {
+            vector<int> move;
+            if (can_move_to_left(board, i, j)) { //[i, j, 1]
+                move.push_back(i);
+                move.push_back(j);
+                move.push_back(1);
+                moves.push_back(move);
             }
-            if (can_move_to_right(board, i, j)) { //ij2
-                moves.push_back(i * 100 + j * 10 + 2);
+            if (can_move_to_right(board, i, j)) { //[i, j, 2]
+                move.push_back(i);
+                move.push_back(j);
+                move.push_back(2);
+                moves.push_back(move);
             }
-            if (can_move_to_up(board, i, j)) { //ij3
-                moves.push_back(i * 100 + j * 10 + 3);
+            if (can_move_to_up(board, i, j)) { //[i, j, 3]
+                move.push_back(i);
+                move.push_back(j);
+                move.push_back(3);
+                moves.push_back(move);
             }
-            if (can_move_to_down(board, i, j)) { //ij4
-                moves.push_back(i * 100 + j * 10 + 4);
+            if (can_move_to_down(board, i, j)) { //[i, j, 4]
+                move.push_back(i);
+                move.push_back(j);
+                move.push_back(4);
+                moves.push_back(move);
             }
         }
     }
 
-    // debug prints
-    // for (int i : moves)
-    //     cout << i << ' ';
-
     int index = rand() % (int)(moves.size());
-    // cout << endl
-    //      << "random move = " << moves[index] << endl;
-    return moves[index];
+    return moves[index]; // random move from all possible moves
 }
 
 char get_selection(const string msg, char lower, char upper) {
@@ -137,6 +253,8 @@ char get_selection(const string msg, char lower, char upper) {
     while (!flag) {
         if (msg[0] != '\0') cout << msg;
         cin >> selection;
+        while (getchar() != '\n')
+            ; // remove unnecessary characters
         if (selection < lower || selection > upper) {
             cout << "TRY AGAIN" << endl;
             continue;
@@ -146,23 +264,39 @@ char get_selection(const string msg, char lower, char upper) {
     return selection;
 }
 
-int get_command(int &y, int &x, char &direction, int score) {
-    char column;
-    cin >> column;
-    if (column == '0') {
-        cout << "\nGame over.\n"; /* say bye to user */
-        cout << score << " points.\n\n";
-        exit(0); // 0 is exit
+int get_command(int &y, int &x, char &direction, const vector<vector<BoardItem>> &board) {
+    string input, filename;
+
+    getline(cin, input);
+
+    // save board to continue game later
+    if (input == "SAVE" || input == "save") {
+        cout << "Enter file name: ";
+        getline(cin, filename);
+        cout << endl;
+        save_game(1, board, filename);
+        return 1;
     }
 
-    x = (int)(column)-65;
-    cin >> y;
-    y--;
-    cin >> direction;
-    if (direction != '-') cout << "Invalid input." << endl;
-    cin >> direction;
+    if (input[0] == '0') {
+        return -1;
+    }
 
-    if (x >= 9 || y >= 9 || !(direction == 'L' || direction == 'R' || direction == 'U' || direction == 'D')) return 0; //input validation
+    // convert char to int, 'A','B','C' -> 0,1,2
+    // x = (decltype(x))(column)-65;
+    x = (int)(input[0])-65;
+
+    // convert char to int, '1','2','3' -> 1,2,3
+    y = (int)(input[1]) - 48;
+    y--;
+
+    direction = input[3];
+
+    // command validation
+    if (input[2] != '-' || x < 0 || y < 0 || y >= (int)(board.size()) || x >= (int)(board[0].size()) || !(direction == 'L' || direction == 'R' || direction == 'U' || direction == 'D')) {
+        cerr << "Invalid input." << endl;
+        return 0;
+    }
     return 1;
 }
 
@@ -192,11 +326,9 @@ void set_board(vector<vector<BoardItem>> &board) {
 }
 
 int you_won(const vector<vector<BoardItem>> &board) {
-    int h = board.size();
-    int w = board[0].size();
 
-    for (int i = 0; i < h; i++) {
-        for (int j = 0; j < w; j++) {
+    for (size_t i = 0; i < board.size(); i++) {
+        for (size_t j = 0; j < board[0].size(); j++) {
             if ((can_move_to_left(board, i, j)) ||
                 (can_move_to_right(board, i, j)) ||
                 (can_move_to_up(board, i, j)) ||
@@ -208,21 +340,16 @@ int you_won(const vector<vector<BoardItem>> &board) {
     return 1;
 }
 
-void print_board(const vector<vector<BoardItem>> board) {
-    int h = board.size();
-    int w = board[0].size();
-
-    // cout << "height: " << h << "  width: " << w << endl;
-
-    cout << "   ";
-    for (int i = 0; i < w; i++)
+void print_board(const vector<vector<BoardItem>> &board) {
+    
+    cout << "\n   ";
+    for (size_t i = 0; i < board[0].size(); i++)
         cout << (char)(97 + i) << " "; // print header row
     cout << endl;
 
-    for (int i = 0; i < h; i++) {
+    for (size_t i = 0; i < board.size(); i++) {
         cout << i + 1 << " "; // print header column
-        // if(board[0][1] == BoardItem::EMPTY) cout << string(h - i - 1, ' '); // Exception for Board 6
-        for (int j = 0; j < w; j++) {
+        for (size_t j = 0; j < board[0].size(); j++) {
             switch (board[i][j]) {
             case BoardItem::EMPTY:
                 cout << "  ";
@@ -260,8 +387,6 @@ int move_left(vector<vector<BoardItem>> &board, int y, int x) {
         board[y][x - 2] = BoardItem::PEG;
         return 1;
     }
-    cout << "y: " << y << " x: " << x << "\n"
-         << (int)(board[y][x]);
     return 0;
 }
 
@@ -272,8 +397,6 @@ int move_right(vector<vector<BoardItem>> &board, int y, int x) {
         board[y][x + 2] = BoardItem::PEG;
         return 1;
     }
-    cout << "y: " << y << " x: " << x << "\n"
-         << (int)(board[y][x]);
     return 0;
 }
 
@@ -284,8 +407,6 @@ int move_up(vector<vector<BoardItem>> &board, int y, int x) {
         board[y - 2][x] = BoardItem::PEG;
         return 1;
     }
-    cout << "y: " << y << " x: " << x << "\n"
-         << (int)(board[y][x]);
     return 0;
 }
 
@@ -296,7 +417,5 @@ int move_down(vector<vector<BoardItem>> &board, int y, int x) {
         board[y + 2][x] = BoardItem::PEG;
         return 1;
     }
-    cout << "y: " << y << " x: " << x << "\n"
-         << (int)(board[y][x]);
     return 0;
 }
