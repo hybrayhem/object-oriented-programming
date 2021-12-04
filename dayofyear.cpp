@@ -44,6 +44,13 @@ namespace DateTime {
         delete[] set;
     }
 
+    int DayOfYearSet::isExists(const DayOfYear &dof){
+        for(int i = 0; i < used; i++){
+            if(set[i] == dof) return i;
+        }
+        return -1;
+    }
+
     DayOfYearSet &DayOfYearSet::operator=(const DayOfYearSet &rValue) {
         if (capacity != rValue.capacity) {
             delete[] set;
@@ -68,8 +75,8 @@ namespace DateTime {
 
     bool DayOfYearSet::operator==(const DayOfYearSet &dofs) {
         if (used == dofs.used) {
-            for (int i = 0; i < used; i++) {
-                if (set[i] != dofs.set[i]) return 0;
+            for (int i = 0; i < used; i++) {    
+                if (isExists(dofs.set[i]) == -1) return 0;
             }
         } else
             return 0;
@@ -80,7 +87,7 @@ namespace DateTime {
     bool DayOfYearSet::operator!=(const DayOfYearSet &dofs) {
         if (used == dofs.used) {
             for (int i = 0; i < used; i++) {
-                if (set[i] != dofs.set[i]) return 1;
+                if (isExists(dofs.set[i]) == -1) return 1;
             }
         } else
             return 1;

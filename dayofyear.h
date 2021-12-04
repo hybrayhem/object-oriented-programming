@@ -47,5 +47,7 @@ namespace DateTime {
         DayOfYear *set;
         int capacity;
         int used;
+
+        int isExists(const DayOfYear &dof);
     };
 }
