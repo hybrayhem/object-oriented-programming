@@ -31,14 +31,17 @@ namespace DateTime {
         DayOfYearSet();
         DayOfYearSet(int size);
         DayOfYearSet(const std::vector<DayOfYear> dayOfYears);
-        ~DayOfYearSet();
+        DayOfYearSet(const DayOfYearSet &dofs); // copy constructor
+        ~DayOfYearSet();                        // destructor
 
         int getCapacity() const { return capacity; }
         int getUsed() const { return used; }
 
+        DayOfYearSet &operator=(const DayOfYearSet &rValue); // copy assignment operator
         friend std::ostream &operator<<(std::ostream &outs, const DayOfYearSet &dofs);
         bool operator==(const DayOfYearSet &dofs);
         bool operator!=(const DayOfYearSet &dofs);
+        DayOfYear &operator[](int index);
 
     private:
         DayOfYear *set;

@@ -34,8 +34,27 @@ namespace DateTime {
         }
     }
 
+    DayOfYearSet::DayOfYearSet(const DayOfYearSet &dayOfYears) : capacity(dayOfYears.getCapacity()), used(dayOfYears.getUsed()) {
+        set = new DayOfYear[capacity];
+        for (int i = 0; i < used; i++)
+            set[i] = dayOfYears.set[i];
+    }
+
     DayOfYearSet::~DayOfYearSet() {
         delete[] set;
+    }
+
+    DayOfYearSet &DayOfYearSet::operator=(const DayOfYearSet &rValue) {
+        if (capacity != rValue.capacity) {
+            delete[] set;
+            set = new DayOfYear[rValue.capacity];
+        }
+        capacity = rValue.capacity;
+        used = rValue.used;
+        for (int i = 0; i < used; i++)
+            set[i] = rValue.set[i];
+
+        return *this;
     }
 
     std::ostream &operator<<(std::ostream &outs, const DayOfYearSet &dofs) {
@@ -50,7 +69,7 @@ namespace DateTime {
     bool DayOfYearSet::operator==(const DayOfYearSet &dofs) {
         if (used == dofs.used) {
             for (int i = 0; i < used; i++) {
-                if (dofs.set[i] != dofs.set[i]) return 0;
+                if (set[i] != dofs.set[i]) return 0;
             }
         } else
             return 0;
@@ -59,14 +78,23 @@ namespace DateTime {
     }
 
     bool DayOfYearSet::operator!=(const DayOfYearSet &dofs) {
-        if (dofs1.getUsed() == dofs2.getUsed()) {
-            for (int i = 0; i < dofs1.getUsed(); i++) {
-                if (dofs1.set[i] != dofs2.set[i]) return 1;
+        if (used == dofs.used) {
+            for (int i = 0; i < used; i++) {
+                if (set[i] != dofs.set[i]) return 1;
             }
         } else
             return 1;
 
         return 0;
+    }
+
+    DayOfYearSet::DayOfYear& DayOfYearSet::operator[](int index){
+        if(index >= used) {
+            std::cout << "Illegal index in DayOfYearSet." << std::endl;
+            exit(0);
+        }
+
+        return set[index];
     }
 
     /* -------------------------------------------------------------------------- */
@@ -149,7 +177,6 @@ namespace DateTime {
 
         std::cout << day << std::endl;
     }
-    
 
     std::ostream &operator<<(std::ostream &outs, const DayOfYearSet::DayOfYear &dof) {
         const std::string months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
