@@ -35,7 +35,38 @@ namespace DateTime {
     }
 
     DayOfYearSet::~DayOfYearSet() {
-        // delete set;
+        delete[] set;
+    }
+
+    std::ostream &operator<<(std::ostream &outs, const DayOfYearSet &dofs) {
+        std::cout << std::endl;
+        for (int i = 0; i < dofs.getUsed(); i++) {
+            std::cout << i + 1 << ". " << dofs.set[i] << std::endl;
+        }
+        std::cout << std::endl;
+        return outs;
+    }
+
+    bool DayOfYearSet::operator==(const DayOfYearSet &dofs) {
+        if (used == dofs.used) {
+            for (int i = 0; i < used; i++) {
+                if (dofs.set[i] != dofs.set[i]) return 0;
+            }
+        } else
+            return 0;
+
+        return 1;
+    }
+
+    bool DayOfYearSet::operator!=(const DayOfYearSet &dofs) {
+        if (dofs1.getUsed() == dofs2.getUsed()) {
+            for (int i = 0; i < dofs1.getUsed(); i++) {
+                if (dofs1.set[i] != dofs2.set[i]) return 1;
+            }
+        } else
+            return 1;
+
+        return 0;
     }
 
     /* -------------------------------------------------------------------------- */
@@ -119,4 +150,17 @@ namespace DateTime {
         std::cout << day << std::endl;
     }
     
+
+    std::ostream &operator<<(std::ostream &outs, const DayOfYearSet::DayOfYear &dof) {
+        const std::string months[] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+        std::cout << months[dof.getMonthNumber() - 1] << " " << dof.getDay();
+        return outs;
+    }
+
+    bool DayOfYearSet::DayOfYear::operator==(const DayOfYearSet::DayOfYear &dof) {
+        return (month == dof.month && day == dof.day);
+    }
+    bool DayOfYearSet::DayOfYear::operator!=(const DayOfYearSet::DayOfYear &dof) {
+        return (month != dof.month || day != dof.day);
+    }
 }
