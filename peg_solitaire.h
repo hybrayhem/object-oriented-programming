@@ -22,11 +22,11 @@ namespace BoardGame {
             Cell(cell_t cellType) : type(cellType){};
             Cell(int x, int y) : x(x), y(y){};
 
-            inline int getX() {
+            int getX() {
                 return x;
             }
 
-            inline int getY() {
+            int getY() {
                 return y;
             }
 
@@ -49,12 +49,11 @@ namespace BoardGame {
 
         void initialize(); // set board and x,y values of cells
         void print(const std::string msg) const;
-        friend std::ostream &operator<<(std::ostream &outs, const PegSolitaire &game);
-
+        
         int playUser(std::string command); // certain move
         void playAuto();                    // random computer move
 
-        int boardScore();
+        int boardScore(); // number of pegs remaining on board, less is better
 
     private:
         std::vector<std::vector<Cell>> board;

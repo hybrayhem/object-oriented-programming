@@ -43,27 +43,22 @@ namespace BoardGame {
         std::cout << std::endl;
     }
 
-    std::ostream &operator<<(std::ostream &outs, const PegSolitaire &game) {
-        game.print("");
-        return outs;
-    }
-
     int PegSolitaire::playUser(std::string command) {
         int y, x, success;
         char direction;
         if (!parseCommand(command, y, x, direction)) return 0;
 
         switch (direction) {
-        case 'L':
+        case 'l':
             success = move_left(board[y][x]);
             break;
-        case 'R':
+        case 'r':
             success = move_right(board[y][x]);
             break;
-        case 'U':
+        case 'u':
             success = move_up(board[y][x]);
             break;
-        case 'D':
+        case 'd':
             success = move_down(board[y][x]);
             break;
         }
@@ -116,23 +111,10 @@ namespace BoardGame {
         return peg;
     }
 
-    bool PegSolitaire::endGame() {
-        for (size_t i = 0; i < board.size(); i++) {
-            for (size_t j = 0; j < board[0].size(); j++) {
-                if ((can_move_to_left(board[i][j])) ||
-                    (can_move_to_right(board[i][j])) ||
-                    (can_move_to_up(board[i][j])) ||
-                    (can_move_to_down(board[i][j]))) {
-                    return 0;
-                }
-            }
-        }
-        return 1;
-    }
-
     int PegSolitaire::parseCommand(std::string input, int &y, int &x, char &direction) {
-        // convert char to int, 'A','B','C' -> 0,1,2
-        x = (int)(input[0]) - 65;
+        if(input.length() < 4) return 0;
+        // convert char to int, 'a','b','c' -> 0,1,2
+        x = (int)(input[0]) - 97;
 
         // convert char to int, '1','2','3' -> 1,2,3
         y = (int)(input[1]) - 48;
@@ -141,7 +123,7 @@ namespace BoardGame {
         direction = input[3];
 
         // command validation
-        if (input[2] != '-' || x < 0 || y < 0 || y >= (int)(board.size()) || x >= (int)(board[0].size()) || !(direction == 'L' || direction == 'R' || direction == 'U' || direction == 'D')) {
+        if (input[2] != '-' || x < 0 || y < 0 || y >= (int)(board.size()) || x >= (int)(board[0].size()) || !(direction == 'l' || direction == 'r' || direction == 'u' || direction == 'd')) {
             std::cerr << "Invalid input." << std::endl;
             return 0;
         }
@@ -236,5 +218,19 @@ namespace BoardGame {
 
         int index = rand() % (int)(moves.size());
         return moves[index]; // random move from all possible moves
+    }
+
+    bool PegSolitaire::endGame() {
+        for (size_t i = 0; i < board.size(); i++) {
+            for (size_t j = 0; j < board[0].size(); j++) {
+                if ((can_move_to_left(board[i][j])) ||
+                    (can_move_to_right(board[i][j])) ||
+                    (can_move_to_up(board[i][j])) ||
+                    (can_move_to_down(board[i][j]))) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 }
