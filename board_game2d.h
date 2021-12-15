@@ -11,7 +11,7 @@ namespace BoardGame {
         static void playVector(std::vector<BoardGame2D*> game);
 
         virtual void initialize() = 0;
-        virtual void print(const std::string msg) = 0;
+        virtual void print(const std::string msg) const = 0;
         friend std::ostream &operator<<(std::ostream &outs, const BoardGame2D &game);
         
         virtual int playUser(std::string command) = 0;
