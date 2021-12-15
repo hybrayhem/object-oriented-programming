@@ -16,7 +16,12 @@ namespace BoardGame {
         }
     }
 
-    void PegSolitaire::print(const std::string msg) const {
+    void PegSolitaire::print(const std::string msg, bool overwrite) const {
+        if (overwrite) {
+            for (int i = 0; i < 14; i++)
+                std::cout << "\033[F";
+        }
+
         std::cout << "\n   ";
         for (size_t i = 0; i < board[0].size(); i++)
             std::cout << (char)(97 + i) << " "; // print header row
@@ -98,6 +103,8 @@ namespace BoardGame {
         std::cout << "\n\n";
 
         if (!success) std::cerr << "\n> OOPS, something went wrong!\n\n"; // for invalid movements
+
+        std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::milliseconds(100));
     }
 
     int PegSolitaire::boardScore() {
@@ -112,7 +119,7 @@ namespace BoardGame {
     }
 
     int PegSolitaire::parseCommand(std::string input, int &y, int &x, char &direction) {
-        if(input.length() < 4) return 0;
+        if (input.length() < 4) return 0;
         // convert char to int, 'a','b','c' -> 0,1,2
         x = (int)(input[0]) - 97;
 

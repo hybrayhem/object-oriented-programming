@@ -48,7 +48,7 @@ namespace BoardGame {
         };
 
         void initialize(); // set board and x,y values of cells
-        void print(const std::string msg) const;
+        void print(const std::string msg, bool overwrite) const;
         
         int playUser(std::string command); // certain move
         void playAuto();                    // random computer move
