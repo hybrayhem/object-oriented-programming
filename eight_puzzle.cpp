@@ -70,7 +70,12 @@ namespace BoardGame {
         }
     }
 
-    void EightPuzzle::print(const std::string msg) const {
+    void EightPuzzle::print(const std::string msg, bool overwrite) const {
+        if (overwrite) {
+            for (int i = 0; i < 13; i++)
+                std::cout << "\033[F";
+        }
+
         /* header row */
         std::cout << "\n\n\n     ";
         for (int i = 0; i < N; i++) {
@@ -137,7 +142,7 @@ namespace BoardGame {
     }
 
     void EightPuzzle::playAuto() {
-        int a, b, success;
+        int a, b;
         std::vector<int> move;
 
         move = get_random_valid_move();
@@ -165,6 +170,8 @@ namespace BoardGame {
             std::cout << "D";
             break;
         }
+
+        std::this_thread::sleep_until(std::chrono::system_clock::now() + std::chrono::nanoseconds(25));
     }
 
     int EightPuzzle::boardScore() {
@@ -276,11 +283,10 @@ namespace BoardGame {
                 else
                     nextItem = puzzle[i + 1][0];
 
-                if (thisItem != -1 && nextItem != -1) {
-                    /* difference between numbers must be 1 */
-                    if (nextItem - thisItem != 1) {
-                        return false; /* no win */
-                    }
+                if (thisItem == -1 || nextItem == -1) continue;
+                /* difference between numbers must be 1 */
+                if (nextItem - thisItem != 1) {
+                    return false; /* no win */
                 }
             }
         }

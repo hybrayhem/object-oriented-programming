@@ -10,7 +10,7 @@ namespace BoardGame {
         EightPuzzle();
 
         void initialize();                       // creates random sliding puzzle 2d array
-        void print(const std::string msg) const; // print well-formatted puzzle
+        void print(const std::string msg, bool overwrite) const; // print well-formatted puzzle
 
         int playUser(std::string command); // certain move
         void playAuto();                   // random computer move
