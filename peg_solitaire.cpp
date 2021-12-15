@@ -16,7 +16,7 @@ namespace BoardGame {
         }
     }
 
-    void PegSolitaire::print(const std::string msg) {
+    void PegSolitaire::print(const std::string msg) const {
         std::cout << "\n   ";
         for (size_t i = 0; i < board[0].size(); i++)
             std::cout << (char)(97 + i) << " "; // print header row
@@ -37,22 +37,21 @@ namespace BoardGame {
                     std::cout << " .";
                     break;
                 }
-                // std::cout << "(" << board[i][j].getX() << "," << board[i][j].getY() << ") ";
             }
             std::cout << std::endl;
         }
         std::cout << std::endl;
     }
 
-    std::ostream &operator<<(std::ostream &outs, const BoardGame2D &game) {
-        outs << "To be implemented.";
+    std::ostream &operator<<(std::ostream &outs, const PegSolitaire &game) {
+        game.print("");
         return outs;
     }
 
     int PegSolitaire::playUser(std::string command) {
         int y, x, success;
         char direction;
-        if(!parseCommand(command, y, x, direction)) return 0;
+        if (!parseCommand(command, y, x, direction)) return 0;
 
         switch (direction) {
         case 'L':

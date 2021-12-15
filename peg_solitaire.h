@@ -48,8 +48,8 @@ namespace BoardGame {
         };
 
         void initialize(); // set board and x,y values of cells
-        void print(const std::string msg);
-        friend std::ostream &operator<<(std::ostream &outs, const BoardGame2D &game);
+        void print(const std::string msg) const;
+        friend std::ostream &operator<<(std::ostream &outs, const PegSolitaire &game);
 
         int playUser(std::string command); // certain move
         void playAuto();                    // random computer move
