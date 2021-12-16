@@ -20,16 +20,17 @@ int main() {
     srand(time(NULL));
     string input;
 
-    /* --------------------------- PEG_SOLITAIRE TEST --------------------------- */
+    cout << "/* --------------------------- PEG_SOLITAIRE TEST --------------------------- */";
     BoardGame::PegSolitaire pegame;
     cout << pegame;
 
     // play by string command
     if (pegame.playUser("e7-u"))
         pegame.print("after e7-u", false);
+    cout << "Board score: " << pegame.boardScore() << endl;
 
     // play by user input
-    //TODO: pegame.BoardGame2D::playUser();
+    pegame.BoardGame2D::playUser();
 
     // play a random move
     pegame.playAuto();
@@ -38,16 +39,17 @@ int main() {
     pegame.playAutoAll();
     cout << "Board score: " << pegame.boardScore() << endl;
 
-    /* ---------------------------- EIGHT_PUZZLE TEST --------------------------- */
+    cout << "\n\n/* ---------------------------- EIGHT_PUZZLE TEST --------------------------- */";
     BoardGame::EightPuzzle epuzzle;
     cout << epuzzle;
 
     // play by string command
-    if (epuzzle.playUser("a1-u"))
-        epuzzle.print("after a1-u", false);
+    // if (epuzzle.playUser("a1-u"))
+    //     epuzzle.print("after a1-u", false);
+    cout << "Board score: " << epuzzle.boardScore() << endl;
 
     // play by user input
-    //TODO: epuzzle.BoardGame2D::playUser();
+    epuzzle.BoardGame2D::playUser();
 
     // play a random move
     epuzzle.playAuto();
@@ -56,15 +58,31 @@ int main() {
     epuzzle.playAutoAll();
     cout << "Board score: " << epuzzle.boardScore() << endl;
 
-    /* --------------------------------- KLOTSKI -------------------------------- */
+    cout << "\n\n/* --------------------------------- KLOTSKI -------------------------------- */";
+    Klotski klotski;
+    cout << klotski;
 
+    // play by string command
+    if (klotski.playUser("6-d"))
+        klotski.print("after 6-d", false);
+    cout << "Board score: " << klotski.boardScore() << endl;
 
-    /* ------------------------------- playVector ------------------------------- */
+    // play by user input
+    klotski.BoardGame2D::playUser();
+
+    // play a random move
+    klotski.playAuto();
+    klotski.print("after play auto", false);
+
+    klotski.playAutoAll();
+    cout << "Board score: " << klotski.boardScore() << endl;
+
+    cout << "\n\n/* ------------------------------- playVector ------------------------------- */";
     PegSolitaire pegame1, pegame2;
     EightPuzzle epuzzle1, epuzzle2;
-    // Klotski klotski1, klotski2;
+    Klotski klotski1, klotski2;
 
-    vector<BoardGame2D*> games = {&pegame1, &pegame2, &epuzzle1, &epuzzle2};
-    // BoardGame2D::playVector(games);
+    vector<BoardGame2D *> games = {&pegame1, &pegame2, &epuzzle1, &epuzzle2, &klotski1, &klotski2};
+    BoardGame::BoardGame2D::playVector(games);
     return 0;
 }
