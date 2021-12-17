@@ -23,6 +23,10 @@ namespace BoardGame {
         virtual int boardScore() = 0;
         virtual bool endGame() = 0;
 
+        virtual std::vector<std::string> nextMoves() = 0;
+        virtual int nextScore(std::string move) = 0;
+        virtual void playAutoSmart() final;
+
     private:
     };
 }

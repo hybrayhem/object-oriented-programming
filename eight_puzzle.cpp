@@ -10,13 +10,22 @@ namespace BoardGame {
         int indexA, indexB, axis; // random numbers
         float difficulty = 1;     // 1 is easy, 2 is middle, 3 is hard;  determines number of movement to solve puzzle
 
-        // create puzzle board
-        puzzle = initialPuzzle;
+        /* create puzzle board */
+        int x = 1;
+        for (size_t i = 0; i < N; i++) {
+            std::vector<int> row;
+            for (size_t j = 0; j < N; j++) {
+                row.push_back(x);
+                x++;
+            }
+            puzzle.push_back(row);
+        }
         spaceA = N - 1;
-        spaceB = N - 1; // last square is space
+        spaceB = N - 1;
+        puzzle[spaceA][spaceB] = -1; /* last square is space */
 
         // makes random movements on board, board is solvable in all conditions and difficulty is adjustable
-        for (int i = rand() % 2; i < N * N * difficulty; i++) // start from random binary position for axis
+        for (int i = rand() % 2; i < 3 /*N * N * difficulty*/; i++) // start from random binary position for axis
         {
             axis = i % 2; // horizontal and vertical respectively
 
@@ -72,7 +81,7 @@ namespace BoardGame {
 
     void EightPuzzle::print(const std::string msg, bool overwrite) const {
         if (overwrite) {
-            for (int i = 0; i < 13; i++)
+            for (int i = 0; i < 15; i++)
                 std::cout << "\033[F";
         }
 
@@ -136,7 +145,7 @@ namespace BoardGame {
             success = move_down(a, b);
             break;
         }
-        if (success == 0) std::cerr << "\n> OOPS! I can't move to that direction!\n\n"; // for invalid movements
+        // if (success == 0) std::cerr << "\n> OOPS! I can't move to that direction!\n\n"; // for invalid movements
 
         return success;
     }
@@ -175,10 +184,11 @@ namespace BoardGame {
     }
 
     int EightPuzzle::boardScore() {
-        int score = 0;
+        int score = 0, tile = 1; // tile num one to fiveteen
         for (size_t i = 0; i < N; i++) {
             for (size_t j = 0; j < N; j++) {
-                score += (puzzle[i][j] != initialPuzzle[i][j]);
+                if (puzzle[i][j] != -1) score += abs(puzzle[i][j] - tile);
+                tile++;
             }
         }
         return score;
@@ -201,10 +211,23 @@ namespace BoardGame {
         return 1;
     }
 
+    bool EightPuzzle::can_move_to_left(int a, int b) {
+        return (a == spaceA && b > spaceB);
+    }
+    bool EightPuzzle::can_move_to_right(int a, int b) {
+        return (a == spaceA && b < spaceB);
+    }
+    bool EightPuzzle::can_move_to_up(int a, int b) {
+        return (b == spaceB && a > spaceA);
+    }
+    bool EightPuzzle::can_move_to_down(int a, int b) {
+        return (b == spaceB && a < spaceA);
+    }
+
     int EightPuzzle::move_left(int a, int b) {
         int i;
 
-        if (a == spaceA && b > spaceB) {
+        if (can_move_to_left(a, b)) {
             /* slide every item left until reach space */
             for (i = (spaceB) + 1; i <= b; i++) {
                 puzzle[a][i - 1] = puzzle[a][i];
@@ -222,7 +245,7 @@ namespace BoardGame {
     int EightPuzzle::move_right(int a, int b) {
         int i;
 
-        if (a == spaceA && b < spaceB) {
+        if (can_move_to_right(a, b)) {
             for (i = (spaceB)-1; i >= b; i--) {
                 puzzle[a][i + 1] = puzzle[a][i];
             }
@@ -238,7 +261,7 @@ namespace BoardGame {
     int EightPuzzle::move_up(int a, int b) {
         int i;
 
-        if (b == spaceB && a > spaceA) {
+        if (can_move_to_up(a, b)) {
             /* slide every item up until reach space */
             for (i = (spaceA) + 1; i <= a; i++) {
                 puzzle[i - 1][b] = puzzle[i][b];
@@ -256,7 +279,7 @@ namespace BoardGame {
     int EightPuzzle::move_down(int a, int b) {
         int i;
 
-        if (b == spaceB && a < spaceA) {
+        if (can_move_to_down(a, b)) {
             for (i = (spaceA)-1; i >= a; i--) {
                 puzzle[i + 1][b] = puzzle[i][b];
             }
@@ -267,30 +290,6 @@ namespace BoardGame {
         } else {
             return 0;
         }
-    }
-
-    bool EightPuzzle::endGame() {
-        int thisItem, nextItem;
-
-        for (size_t i = 0; i < N; i++) {
-            for (size_t j = 0; j < N; j++) {
-                if (i == N - 1 && j == N - 1) break;
-
-                /* set thisItem and nextItem value */
-                thisItem = puzzle[i][j];
-                if (j != N - 1)
-                    nextItem = puzzle[i][j + 1];
-                else
-                    nextItem = puzzle[i + 1][0];
-
-                if (thisItem == -1 || nextItem == -1) continue;
-                /* difference between numbers must be 1 */
-                if (nextItem - thisItem != 1) {
-                    return false; /* no win */
-                }
-            }
-        }
-        return true; /* win */
     }
 
     std::vector<int> EightPuzzle::get_random_valid_move() {
@@ -338,5 +337,63 @@ namespace BoardGame {
         move.push_back(direction);
 
         return move;
+    }
+
+    bool EightPuzzle::endGame() {
+        return (boardScore() == 0);
+    }
+
+    std::vector<std::string> EightPuzzle::nextMoves() {
+        std::vector<std::string> moves;
+
+        for (size_t i = 0; i < N; i++) {
+            for (size_t j = 0; j < N; j++) {
+                std::string move;
+                move = (char)(j + 97) + std::to_string(i + 1) + "-";
+                if ((can_move_to_left(i, j))) {
+                    move = move + "l";
+                    moves.push_back(move);
+                }
+                if ((can_move_to_right(i, j))) {
+                    move = move + "r";
+                    moves.push_back(move);
+                }
+                if ((can_move_to_up(i, j))) {
+                    move = move + "u";
+                    moves.push_back(move);
+                }
+                if ((can_move_to_down(i, j))) {
+                    move = move + "d";
+                    moves.push_back(move);
+                }
+                // std::cout << "move: " << move << std::endl;
+            }
+        }
+        return moves;
+    }
+
+    int EightPuzzle::nextScore(std::string move) {
+        int score;
+        // print("nextscore", false);
+        std::vector<std::vector<int>> tempPuzzle;
+        for (size_t i = 0; i < N; i++) {
+            std::vector<int> row;
+            for (size_t j = 0; j < N; j++) {
+                row.push_back(puzzle[i][j]);
+            }
+            tempPuzzle.push_back(row);
+        }
+
+        playUser(move);
+        score = boardScore();
+        // print("nextscore", false);
+
+        for (size_t i = 0; i < N; i++) {
+            for (size_t j = 0; j < N; j++) {
+                puzzle[i][j] = tempPuzzle[i][j];
+            }
+        }
+
+        return score;
     }
 }

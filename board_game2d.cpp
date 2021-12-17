@@ -1,6 +1,26 @@
 #include "board_game2d.h"
 
 namespace BoardGame {
+    void BoardGame2D::playAutoSmart() {
+        std::vector<std::string> moves;
+        std::string bestMove;
+        int bestScore;
+
+        moves = nextMoves();
+
+        bestMove = moves[0];
+        bestScore = nextScore(bestMove);
+        for(size_t i = 1; i < moves.size(); i++){
+            if(nextScore(moves[i]) > bestScore){
+                bestScore = nextScore(moves[i]);
+                bestMove = moves[i];
+            }
+        }
+
+        std::cout << "Moving... " << bestMove << "." << std::endl;
+        playUser(bestMove);
+    }
+
     void BoardGame2D::playVector(std::vector<BoardGame2D *> games) {
         for (size_t i = 0; i < games.size(); i++) {
             games[i]->playAutoAll();
