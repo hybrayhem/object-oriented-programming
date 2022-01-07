@@ -2,14 +2,40 @@ package DateTime;
 
 import java.util.ArrayList;
 
+/**
+ * Class {@code DayOfYearSet} is a set implementation of the {@code DayOfYear}
+ * objects.
+ * All items are unique. {@code add} and {@code remove} for modify the set.
+ * {@code union}, {@code difference}, {@code intersection} and
+ * {@code complement} operates De Morgan's laws.
+ * 
+ * @author Halil I. ILHAN
+ * @version 1.0
+ */
 public class DayOfYearSet implements Cloneable {
+    /** Unique id of the instance */
     private int id;
     private static int count = 0;
     static final String[] monthNames = { "January", "February", "March", "April", "May", "June", "July", "August",
             "September", "October", "November", "December" };
+    static final int[] monthLengths = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+    /**
+     * The array which the items of the DayOfYearSet are stored.
+     * The capacity of the DayOfYearSet is the length of this array.
+     */
     private DayOfYear[] set;
+
+    /**
+     * Default initial capacity.
+     */
     private int capacity = 20;
+
+    /**
+     * The number of items it contains.
+     *
+     * @serial
+     */
     private int used = 0;
 
     public int getID() {
@@ -20,17 +46,30 @@ public class DayOfYearSet implements Cloneable {
         return count;
     }
 
+    /**
+     * Constructs an empty set with an initial capacity of twenty.
+     */
     public DayOfYearSet() {
         set = new DayOfYear[this.capacity];
         id = ++count;
     }
 
+    /**
+     * Constructs an empty set with the specified size.
+     *
+     * @param size the initial capacity of the set
+     */
     public DayOfYearSet(int size) {
         this.capacity = size;
         set = new DayOfYear[this.capacity];
         id = ++count;
     }
 
+    /**
+     * Constructs a set containing the elements of the specified ArrayList.
+     *
+     * @param dList the ArrayList whose elements are to be placed into this set
+     */
     public DayOfYearSet(ArrayList<DayOfYear> dList) {
         used = dList.size();
         capacity = used * 2;
@@ -46,6 +85,11 @@ public class DayOfYearSet implements Cloneable {
         id = ++count;
     }
 
+    /**
+     * Returns a deep copy of this {@code DayOfYearSet} instance.
+     *
+     * @return a clone of this {@code DayOfYearSet} instance
+     */
     @Override
     protected DayOfYearSet clone() throws CloneNotSupportedException {
         DayOfYearSet copy = new DayOfYearSet(this.capacity);
@@ -62,6 +106,12 @@ public class DayOfYearSet implements Cloneable {
     // count--;
     // }
 
+    /**
+     * Adds the specified item to the end of this
+     * set. Expands capacity if set is full.
+     * 
+     * @param dayOfYear item to be inserted
+     */
     public void add(final DayOfYear dayOfYear) {
         if (used >= capacity) {
             DayOfYear[] temp = new DayOfYear[capacity];
@@ -77,6 +127,12 @@ public class DayOfYearSet implements Cloneable {
         // System.out.println("used: "+this.used);
     }
 
+    /**
+     * Removes the item at the given index. Shift all items one left starting from
+     * the specified index.
+     *
+     * @param index the index of the item to be removed
+     */
     public void remove(int index) {
         if (index < used) {
             for (int i = index; i < used; i++)
@@ -86,10 +142,21 @@ public class DayOfYearSet implements Cloneable {
             System.out.printf("Invalid index to remove: %d\n", index);
     }
 
+    /**
+     * Returns the number of items in this set.
+     *
+     * @return the number of items in this set
+     */
     public int size() {
         return used;
     }
 
+    /**
+     * Returns sum of this and specified set with no duplicate.
+     * 
+     * @param dSet the set, which the elements of the set are to be added onto this
+     * @return sum of this and specified set
+     */
     public DayOfYearSet union(final DayOfYearSet dSet) {
         DayOfYearSet unionSet = new DayOfYearSet(capacity + dSet.capacity);
 
@@ -98,7 +165,7 @@ public class DayOfYearSet implements Cloneable {
         }
 
         for (int j = 0; j < dSet.used; j++) { // add elements from second set,
-            if (!unionSet.contains(dSet.set[j])) { // no duplicate
+            if (unionSet.contains(dSet.set[j]) == false) { // no duplicate
                 unionSet.add(dSet.set[j]);
             }
         }
@@ -106,10 +173,17 @@ public class DayOfYearSet implements Cloneable {
         return unionSet;
     }
 
+    /**
+     * Removes elements which is part of the both specified set and this, from this
+     * set. And returns the result.
+     * 
+     * @param dSet the set, which the common elements are to be removed from this
+     * @return difference set which {@code this} - {@code dSet}
+     */
     public DayOfYearSet difference(final DayOfYearSet dSet) {
         DayOfYearSet differenceSet = new DayOfYearSet(capacity);
         for (int i = 0; i < used; i++) {
-            if (!dSet.contains(set[i])) {
+            if (dSet.contains(set[i]) == false) {
                 differenceSet.add(set[i]);
             }
         }
@@ -117,6 +191,11 @@ public class DayOfYearSet implements Cloneable {
         return differenceSet;
     }
 
+    /**
+     * Returns the set formed by the elements in both sets.
+     * 
+     * @return intersection set of {@code this} and {@code dSet}
+     */
     public DayOfYearSet intersection(final DayOfYearSet dSet) {
         DayOfYearSet intersectionSet = new DayOfYearSet(capacity);
         for (int i = 0; i < used; i++) {
@@ -128,12 +207,17 @@ public class DayOfYearSet implements Cloneable {
         return intersectionSet;
     }
 
+    /**
+     * Returns the set which created by removing elements of this set from the all
+     * days of a year.
+     * 
+     */
     public DayOfYearSet complement() {
         DayOfYearSet complementSet = new DayOfYearSet(capacity);
-        for (var i = 1; i < 12; i++) {
-            for (var j = 1; j < 30; j++) {
+        for (var i = 1; i <= 12; i++) {
+            for (var j = 1; j <= monthLengths[i-1]; j++) {
                 var dayOfYear = new DayOfYear(i, j);
-                if (!contains(dayOfYear))
+                if (this.contains(dayOfYear) == false)
                     complementSet.add(dayOfYear);
             }
         }
@@ -141,6 +225,13 @@ public class DayOfYearSet implements Cloneable {
         return complementSet;
     }
 
+    /**
+     * Returns {@code true} if this set contains the specified element. if not
+     * {@code false}
+     *
+     * @param dayOfYear item whose existence in this set to be chechked
+     * @return {@code true} if this set contains the specified element
+     */
     private boolean contains(final DayOfYear dayOfYear) {
         for (int i = 0; i < used; i++) {
             if (set[i] == dayOfYear)
@@ -183,10 +274,20 @@ public class DayOfYearSet implements Cloneable {
         return true;
     }
 
+    /**
+     * Subclass {@code DayOfYear} is representing a day from a regular
+     * year(non-leap).
+     */
     public static class DayOfYear {
+        /** month index from 1 to 12 */
         private int month = 1;
+        /** day number from 1 to 28-31 various on different months */
         private int day = 1;
 
+        /**
+         * Constructs a {@code DayOfYear} which showing day with number {@code day} of
+         * {@code month}, if date is valid.
+         */
         public DayOfYear(int month, int day) {
             if (isValidDate(month, day)) {
                 this.month = month;
@@ -194,11 +295,17 @@ public class DayOfYearSet implements Cloneable {
             }
         }
 
+        /**
+         * Constructs a {@code DayOfYear} which showing day with initial value number 1
+         * of
+         * {@code month}, if date is valid.
+         */
         public DayOfYear(int month) {
             if (isValidDate(month, this.day))
                 this.month = month;
         }
 
+        // getters
         public int getMonth() {
             return month;
         }
@@ -207,6 +314,7 @@ public class DayOfYearSet implements Cloneable {
             return day;
         }
 
+        // setters
         public void setMonth(int month) {
             if (isValidDate(month, this.day))
                 this.month = month;
@@ -217,8 +325,13 @@ public class DayOfYearSet implements Cloneable {
                 this.day = day;
         }
 
+        /**
+         * Validates the day with number {@code day} of {@code month}
+         * 
+         * @param month month index to be checked
+         * @param day   day number to be checked
+         */
         private boolean isValidDate(int month, int day) {
-            final int[] monthLengths = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
             return (((month >= 1) || (month <= 12)) && ((day >= 1) || (day <= monthLengths[month - 1])));
         }
 

@@ -121,6 +121,7 @@ class Main {
         DayOfYearSet lSet = (s1.union(s2)).complement();
         DayOfYearSet rSet = (s1.complement()).intersection(s2.complement());
         System.out.println("> !(s1 + s2) == !s1 ^ !s2 " + lSet.equals(rSet));
+        // System.out.println("sizes: " + lSet.size() + ", " + rSet.size());
 
         // Complement Test
         System.out.printf("\n/* -------------------------------------------------------------------------- */\n"
@@ -128,6 +129,7 @@ class Main {
                 + "/* -------------------------------------------------------------------------- */\n\n");
         get_selection("Press 1 to see Complement operation: ", 1, 1);
         System.out.println("> Complement of set 3" + s3.complement().toString());
+        // System.out.println("size: " + s3.complement().size() + ", " + s3.size());
 
     }
 }
