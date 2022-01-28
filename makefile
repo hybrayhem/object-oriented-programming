@@ -8,6 +8,7 @@ MAIN = Pegame/Main
 
 CLASSES = \
         Pegame/Pegame.java \
+        Pegame/BoardFrame.java \
         Pegame/Main.java 
 
 default: classes
