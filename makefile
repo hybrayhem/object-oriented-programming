@@ -7,7 +7,7 @@ MAIN = Pegame/Main
 		$(JC) $(JFLAGS) $*.java
 
 CLASSES = \
-        Pegame/Pegame.java \
+        Pegame/PegSolitaireGame.java \
         Pegame/BoardFrame.java \
         Pegame/Main.java 
 
