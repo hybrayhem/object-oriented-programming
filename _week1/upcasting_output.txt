@@ -1,0 +1,2 @@
+sub.print: Dog, HavHav
+base.print: Dog
