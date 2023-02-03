@@ -1,0 +1,152 @@
+//////////////////////////////////// LOAD /////////////////////////////////////
+
+$ ./pegame 
+
+
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 1
+
+   a b c d e f g 
+1      P P P    
+2    P P P P P  
+3  P P P . P P P
+4  P P P P P P P
+5  P P P P P P P
+6    P P P P P  
+7      P P P    
+
+
+1. Human Player Game
+2. Computer Game
+3. Load Game File
+0. Exit
+Please select an operation: 3
+Enter file name: arbitrary.txt
+
+
+> INFO: movement format is [vertical_index][horizontal_index]-[u, d, l or r]
+> ex: C2-L, A5-U
+> type 0 for exit the menu 
+> type SAVE for save current game
+
+
+
+   a b c d e f g h i j k 
+1        P P P   P P    
+2        P P P   P P    
+3    P P P P P P P P P  
+4  P P P P . P P P P P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+Enter your command(C2-L, A5-U, SAVE): G4-L
+
+   a b c d e f g h i j k 
+1        P P P   P P    
+2        P P P   P P    
+3    P P P P P P P P P  
+4  P P P P P . . P P P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+Enter your command(C2-L, A5-U, SAVE): I4-L
+
+   a b c d e f g h i j k 
+1        P P P   P P    
+2        P P P   P P    
+3    P P P P P P P P P  
+4  P P P P P . P . . P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+Enter your command(C2-L, A5-U, SAVE): I2-D
+
+   a b c d e f g h i j k 
+1        P P P   P P    
+2        P P P   P .    
+3    P P P P P P P . P  
+4  P P P P P . P . P P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+Enter your command(C2-L, A5-U, SAVE): SAVE
+Enter file name: arbitrary.txt
+
+
+> OOPS! I can't move to that direction!
+
+
+   a b c d e f g h i j k 
+1        P P P   P P    
+2        P P P   P .    
+3    P P P P P P P . P  
+4  P P P P P . P . P P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+Enter your command(C2-L, A5-U, SAVE): 0
+
+1. Human Player Game
+2. Computer Game
+3. Load Game File
+0. Exit
+Please select an operation: 0
+
+
+//////////////////////////////////// SAVE /////////////////////////////////////
+
+$ ./pegame 
+
+
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 1
+
+   a b c d e f g 
+1      P P P    
+2    P P P P P  
+3  P P P . P P P
+4  P P P P P P P
+5  P P P P P P P
+6    P P P P P  
+7      P P P    
+
+
+1. Human Player Game
+2. Computer Game
+3. Load Game File
+0. Exit
+Please select an operation: 3
+Enter file name: arbitrary.txt
+
+
+> INFO: movement format is [vertical_index][horizontal_index]-[u, d, l or r]
+> ex: C2-L, A5-U
+> type 0 for exit the menu 
+> type SAVE for save current game
+
+
+
+   a b c d e f g h i j k 
+1        P P P   P P    
+2        P P P   P .    
+3    P P P P P P P . P  
+4  P P P P P . P . P P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+Enter your command(C2-L, A5-U, SAVE): 0
+
+1. Human Player Game
+2. Computer Game
+3. Load Game File
+0. Exit
+Please select an operation: 0
+

@@ -133,7 +133,7 @@ void load_game(char &gameType, vector<vector<BoardItem>> &board, string filename
     while (!inStream.eof()) {
         vector<BoardItem> tempBoard;
         getline(inStream, buffer);
-        for (auto c: buffer){
+        for (auto c : buffer) {
             switch (c) {
             case '-':
                 tempBoard.push_back(BoardItem::EMPTY);
@@ -284,7 +284,7 @@ int get_command(int &y, int &x, char &direction, const vector<vector<BoardItem>>
 
     // convert char to int, 'A','B','C' -> 0,1,2
     // x = (decltype(x))(column)-65;
-    x = (int)(input[0])-65;
+    x = (int)(input[0]) - 65;
 
     // convert char to int, '1','2','3' -> 1,2,3
     y = (int)(input[1]) - 48;
@@ -327,8 +327,8 @@ void set_board(vector<vector<BoardItem>> &board) {
 
 int you_won(const vector<vector<BoardItem>> &board) {
 
-    for (size_t i = 0; i < board.size(); i++) {
-        for (size_t j = 0; j < board[0].size(); j++) {
+    for (decltype(board.size()) i = 0; i < board.size(); i++) {
+        for (decltype(board[0].size()) j = 0; j < board[0].size(); j++) {
             if ((can_move_to_left(board, i, j)) ||
                 (can_move_to_right(board, i, j)) ||
                 (can_move_to_up(board, i, j)) ||
@@ -341,7 +341,7 @@ int you_won(const vector<vector<BoardItem>> &board) {
 }
 
 void print_board(const vector<vector<BoardItem>> &board) {
-    
+
     cout << "\n   ";
     for (size_t i = 0; i < board[0].size(); i++)
         cout << (char)(97 + i) << " "; // print header row
