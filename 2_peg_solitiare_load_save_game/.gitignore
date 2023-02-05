@@ -1,0 +1,5 @@
+*.pdf
+.vscode/*
+src/main
+*.o
+src/pegame
