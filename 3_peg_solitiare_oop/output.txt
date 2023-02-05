@@ -1,0 +1,615 @@
+Initialize object with default constructor.
+
+
+
+
+
+
+
+
+   a b c d e f g (pegame1)
+1      P P P    
+2    P P P P P  
+3  P P P . P P P
+4  P P P P P P P
+5  P P P P P P P
+6    P P P P P  
+7      P P P    
+
+Initialize object with board type 2
+
+
+
+
+
+
+
+
+
+
+   a b c d e f g h i (pegame2)
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P . P P P P
+6  P P P P P P P P P
+7        P P P      
+8        P P P      
+9        P P P      
+
+Initialize object with board type 3
+
+
+
+
+
+
+
+
+
+
+   a b c d e f g h (pegame3)
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P P P . P P P P
+6  P P P P P P P P
+7      P P P      
+8      P P P      
+9      P P P      
+
+Initialize object with board type input
+> Select the board 1-6: 5
+
+
+
+
+
+
+
+
+
+
+   a b c d e f g h i (pegame4)
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P . P P P P
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Initialize object with loading from file
+Enter file name to load(ex: arbitrary.txt): arbitrary.txt
+
+
+
+
+
+
+
+
+
+   a b c d e f g h i j k (pegame5)
+1        P P P   P P    
+2        . P P   P P    
+3    P P . P P P P P P  
+4  P P . P P P P P P P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+Number of pegs: 36, empty: 12, outs: 0 in pegame1
+Number of pegs: 44, empty: 36, outs: 0 in pegame2
+Number of pegs: 41, empty: 30, outs: 0 in pegame3
+Number of pegs: 40, empty: 40, outs: 0 in pegame4
+Number of pegs: 42, empty: 32, outs: 2 in pegame5
+
+
+Enter file name to save pegame5(ex: save.txt): save.txt
+
+Board saved to file: save.txt
+
+   a b c d e f g h i j k (pegame5)
+1        P P P   P P    
+2        . P P   P P    
+3    P P . P P P P P P  
+4  P P . P P P P P P P P
+5    P P P P P P P P P  
+6        P P P          
+7        P P P          
+
+STATIC FUNCTION AND VARIABLES:
+Total number of pegs in all boards = 360
+Compare number of pegs of pegame1 and pegame2 = Second greater
+PLAY FUNCTION 1
+
+
+   a b c d e f g (pegame1)
+1      P P P    
+2    P P P P P  
+3  P P P . P P P
+4  P P P P P P P
+5  P P P P P P P
+6    P P P P P  
+7      P P P    
+
+Moving... D5-U
+
+
+   a b c d e f g (pegame1 after play)
+1      P P P    
+2    P P P P P  
+3  P P P P P P P
+4  P P P . P P P
+5  P P P . P P P
+6    P P P P P  
+7      P P P    
+
+PLAY FUNCTION 2
+
+
+   a b c d e f g h i (pegame2)
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P . P P P P
+6  P P P P P P P P P
+7        P P P      
+8        P P P      
+9        P P P      
+
+
+   a b c d e f g h i (pegame2 after play E3-D)
+1        P P P      
+2        P P P      
+3        P . P      
+4  P P P P . P P P P
+5  P P P P P P P P P
+6  P P P P P P P P P
+7        P P P      
+8        P P P      
+9        P P P      
+
+PLAY FUNCTION 2 with USER INPUT
+
+
+   a b c d e f g h (pegame3)
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P P P . P P P P
+6  P P P P P P P P
+7      P P P      
+8      P P P      
+9      P P P      
+
+Enter your command(C2-L, A5-U): D3-D
+
+   a b c d e f g h (pegame3)
+1      P P P      
+2      P P P      
+3      P . P      
+4  P P P . P P P P
+5  P P P P P P P P
+6  P P P P P P P P
+7      P P P      
+8      P P P      
+9      P P P      
+
+
+   a b c d e f g h i (pegame4)
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P . P P P P
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+PLAYGAME will play on pegame4 until end.
+> Press 'e' to see PlayGame in action: e
+PlayGame function
+
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P . P P P P
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... G5-L
+
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P P . . P P
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... I5-L
+
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P P . P . .
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... D5-R
+
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P . . P P . .
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... E3-D
+
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P . P P    
+4    P P P . P P P  
+5  P P P . P P P . .
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... C4-R
+
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P . P P    
+4    P . . P P P P  
+5  P P P . P P P . .
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... E1-D
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P P P P    
+4    P . . P P P P  
+5  P P P . P P P . .
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... F5-L
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P P P P    
+4    P . . P P P P  
+5  P P P P . . P . .
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+Moving... F7-U
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P P P P    
+4    P . . P P P P  
+5  P P P P . P P . .
+6    P P P P . P P  
+7      P P P . P    
+8        P P P      
+9          P        
+
+Moving... F4-L
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P P P P    
+4    P . P . . P P  
+5  P P P P . P P . .
+6    P P P P . P P  
+7      P P P . P    
+8        P P P      
+9          P        
+
+Moving... C5-R
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P P P P    
+4    P . P . . P P  
+5  P P . . P P P . .
+6    P P P P . P P  
+7      P P P . P    
+8        P P P      
+9          P        
+
+Moving... E6-U
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P P P P    
+4    P . P P . P P  
+5  P P . . . P P . .
+6    P P P . . P P  
+7      P P P . P    
+8        P P P      
+9          P        
+
+Moving... E3-D
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P . P P    
+4    P . P . . P P  
+5  P P . . P P P . .
+6    P P P . . P P  
+7      P P P . P    
+8        P P P      
+9          P        
+
+Moving... D7-R
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P . P P    
+4    P . P . . P P  
+5  P P . . P P P . .
+6    P P P . . P P  
+7      P . . P P    
+8        P P P      
+9          P        
+
+Moving... E9-U
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      P P . P P    
+4    P . P . . P P  
+5  P P . . P P P . .
+6    P P P . . P P  
+7      P . P P P    
+8        P . P      
+9          .        
+
+Moving... C3-R
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      . . P P P    
+4    P . P . . P P  
+5  P P . . P P P . .
+6    P P P . . P P  
+7      P . P P P    
+8        P . P      
+9          .        
+
+Moving... F7-L
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      . . P P P    
+4    P . P . . P P  
+5  P P . . P P P . .
+6    P P P . . P P  
+7      P P . . P    
+8        P . P      
+9          .        
+
+Moving... D7-U
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      . . P P P    
+4    P . P . . P P  
+5  P P . P P P P . .
+6    P P . . . P P  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... D4-D
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      . . P P P    
+4    P . . . . P P  
+5  P P . . P P P . .
+6    P P P . . P P  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... F3-L
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      . P . . P    
+4    P . . . . P P  
+5  P P . . P P P . .
+6    P P P . . P P  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... F5-L
+
+
+   a b c d e f g h i 
+1          .        
+2        P . P      
+3      . P . . P    
+4    P . . . . P P  
+5  P P . P . . P . .
+6    P P P . . P P  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... D2-D
+
+
+   a b c d e f g h i 
+1          .        
+2        . . P      
+3      . . . . P    
+4    P . P . . P P  
+5  P P . P . . P . .
+6    P P P . . P P  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... H6-L
+
+
+   a b c d e f g h i 
+1          .        
+2        . . P      
+3      . . . . P    
+4    P . P . . P P  
+5  P P . P . . P . .
+6    P P P . P . .  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... A5-R
+
+
+   a b c d e f g h i 
+1          .        
+2        . . P      
+3      . . . . P    
+4    P . P . . P P  
+5  . . P P . . P . .
+6    P P P . P . .  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... C6-R
+
+
+   a b c d e f g h i 
+1          .        
+2        . . P      
+3      . . . . P    
+4    P . P . . P P  
+5  . . P P . . P . .
+6    P . . P P . .  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... H4-L
+
+
+   a b c d e f g h i 
+1          .        
+2        . . P      
+3      . . . . P    
+4    P . P . P . .  
+5  . . P P . . P . .
+6    P . . P P . .  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... D5-L
+
+
+   a b c d e f g h i 
+1          .        
+2        . . P      
+3      . . . . P    
+4    P . P . P . .  
+5  . P . . . . P . .
+6    P . . P P . .  
+7      P . . . P    
+8        P . P      
+9          .        
+
+Moving... F6-L
+
+
+   a b c d e f g h i 
+1          .        
+2        . . P      
+3      . . . . P    
+4    P . P . P . .  
+5  . P . . . . P . .
+6    P . P . . . .  
+7      P . . . P    
+8        P . P      
+9          .        
+
+pegame4 after PlayGame
+
+SAVING pegame4 to save.txt...
+
