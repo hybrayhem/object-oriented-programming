@@ -315,47 +315,6 @@ namespace BoardGame {
     }
 
     std::vector<int> Klotski::get_random_valid_move() {
-        /*std::vector<std::vector<int>> moves;
-
-        for (size_t i = 0; i < height; i++) {
-            for (size_t j = 0; j < width; j++) {
-                std::vector<int> move;
-                int tileSize = sizeOfTile(board[i][j].getID());
-
-                if (can_move_to_left(board[i][j].getID())) { //[id, 1]
-                    move.push_back(board[i][j].getID());
-                    move.push_back(1);
-                    moves.push_back(move);
-
-                    // insert four times to random pool if tile size is two
-                    // moves.insert(moves.end(), tileSize*2, move); //to equalize the probability of moving big and small tiles
-                }
-                if (can_move_to_right(board[i][j].getID())) { //[id, 2]
-                    move.push_back(board[i][j].getID());
-                    move.push_back(2);
-                    moves.push_back(move);
-
-                    // moves.insert(moves.end(), tileSize*2, move); //to equalize the probability of moving tiles
-                }
-                if (can_move_to_up(board[i][j].getID())) { //[id, 3]
-                    move.push_back(board[i][j].getID());
-                    move.push_back(3);
-                    moves.push_back(move);
-
-                    // moves.insert(moves.end(), tileSize, move); //to equalize the probability of moving tiles
-                }
-                if (can_move_to_down(board[i][j].getID())) { //[id, 4]
-                    move.push_back(board[i][j].getID());
-                    move.push_back(4);
-                    moves.push_back(move);
-
-                    // moves.insert(moves.end(), tileSize*tileSize, move); //to equalize the probability of moving tiles
-                }
-            }
-        }
-
-        int index = rand() % (int)(moves.size());
-        return moves[index]; // random move from all possible moves*/
         int valid = 0, randomID, randomDirection;
         while (!valid) {
             randomID = rand() % 10;
