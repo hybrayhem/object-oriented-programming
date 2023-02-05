@@ -22,7 +22,7 @@ See _output.txt_ files to understand what program does.
 
     - Random Solver
 
-        [gif](https://github.com/hybrayhem/object-oriented-programming/blob/master/5_boardgame/screenshots/solver.gif)
+        ![gif](https://github.com/hybrayhem/object-oriented-programming/blob/master/5_boardgame/screenshots/solver.gif)
     
 * 5_boardgame_smart_solver
 
@@ -35,6 +35,6 @@ See _output.txt_ files to understand what program does.
     
 * 8_peg_solitiare_java
 
-    - [gui](https://github.com/hybrayhem/object-oriented-programming/blob/master/8_peg_solitiare_java/screenshots/ss1.png)
+    - ![gui](https://github.com/hybrayhem/object-oriented-programming/blob/master/8_peg_solitiare_java/screenshots/ss1.png)
 
-    - [gui](https://github.com/hybrayhem/object-oriented-programming/blob/master/8_peg_solitiare_java/screenshots/ss2.png)
+    - ![gui](https://github.com/hybrayhem/object-oriented-programming/blob/master/8_peg_solitiare_java/screenshots/ss2.png)
