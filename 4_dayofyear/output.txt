@@ -1,0 +1,428 @@
+> Default constructor (empty set)
+
+Set ID: 1
+
+> Construct by size (empty set)
+
+Set ID: 2
+
+> Construct by vector
+
+Set ID: 3
+1. January 2
+2. February 3
+3. April 5
+4. June 7
+
+> Copy constructor (from the set upward)
+
+Set ID: 4
+1. January 2
+2. February 3
+3. April 5
+4. June 7
+
+Total Number Of Objects: 4
+
+
+Set ID: 1
+
+
+Set ID: 2
+
+
+Set ID: 3
+
+> Add two element to Set 1
+
+Set ID: 1
+1. December 5
+2. February 3
+
+> Add element to Set 3
+
+Set ID: 3
+1. January 2
+2. February 3
+3. April 5
+4. June 7
+5. December 5
+
+> Remove middle element from Set 3
+
+Set ID: 3
+1. January 2
+2. February 3
+3. June 7
+4. December 5
+
+Size: 4
+> Remove first element from Set 4
+
+Set ID: 4
+1. February 3
+2. April 5
+3. June 7
+
+Size: 3
+> Set 1 + Set 3 
+
+Set ID: 5
+1. December 5
+2. February 3
+3. January 2
+4. June 7
+
+> Set 3 + Set 4 
+
+Set ID: 5
+1. January 2
+2. February 3
+3. June 7
+4. December 5
+5. April 5
+
+> Set 1 - Set 3 
+
+Set ID: 5
+
+> Set 3 - Set 4 
+
+Set ID: 5
+1. January 2
+2. December 5
+
+> Set 1 ^ Set 3 
+
+Set ID: 5
+1. December 5
+2. February 3
+
+> Set 3 ^ Set 4 
+
+Set ID: 5
+1. February 3
+2. June 7
+
+Press 1 to see ! operator: 1
+> !Set 3 
+
+Set ID: 5
+1. January 1
+2. January 3
+3. January 4
+4. January 5
+5. January 6
+6. January 7
+7. January 8
+8. January 9
+9. January 10
+10. January 11
+11. January 12
+12. January 13
+13. January 14
+14. January 15
+15. January 16
+16. January 17
+17. January 18
+18. January 19
+19. January 20
+20. January 21
+21. January 22
+22. January 23
+23. January 24
+24. January 25
+25. January 26
+26. January 27
+27. January 28
+28. January 29
+29. February 1
+30. February 2
+31. February 4
+32. February 5
+33. February 6
+34. February 7
+35. February 8
+36. February 9
+37. February 10
+38. February 11
+39. February 12
+40. February 13
+41. February 14
+42. February 15
+43. February 16
+44. February 17
+45. February 18
+46. February 19
+47. February 20
+48. February 21
+49. February 22
+50. February 23
+51. February 24
+52. February 25
+53. February 26
+54. February 27
+55. February 28
+56. February 29
+57. March 1
+58. March 2
+59. March 3
+60. March 4
+61. March 5
+62. March 6
+63. March 7
+64. March 8
+65. March 9
+66. March 10
+67. March 11
+68. March 12
+69. March 13
+70. March 14
+71. March 15
+72. March 16
+73. March 17
+74. March 18
+75. March 19
+76. March 20
+77. March 21
+78. March 22
+79. March 23
+80. March 24
+81. March 25
+82. March 26
+83. March 27
+84. March 28
+85. March 29
+86. April 1
+87. April 2
+88. April 3
+89. April 4
+90. April 5
+91. April 6
+92. April 7
+93. April 8
+94. April 9
+95. April 10
+96. April 11
+97. April 12
+98. April 13
+99. April 14
+100. April 15
+101. April 16
+102. April 17
+103. April 18
+104. April 19
+105. April 20
+106. April 21
+107. April 22
+108. April 23
+109. April 24
+110. April 25
+111. April 26
+112. April 27
+113. April 28
+114. April 29
+115. May 1
+116. May 2
+117. May 3
+118. May 4
+119. May 5
+120. May 6
+121. May 7
+122. May 8
+123. May 9
+124. May 10
+125. May 11
+126. May 12
+127. May 13
+128. May 14
+129. May 15
+130. May 16
+131. May 17
+132. May 18
+133. May 19
+134. May 20
+135. May 21
+136. May 22
+137. May 23
+138. May 24
+139. May 25
+140. May 26
+141. May 27
+142. May 28
+143. May 29
+144. June 1
+145. June 2
+146. June 3
+147. June 4
+148. June 5
+149. June 6
+150. June 8
+151. June 9
+152. June 10
+153. June 11
+154. June 12
+155. June 13
+156. June 14
+157. June 15
+158. June 16
+159. June 17
+160. June 18
+161. June 19
+162. June 20
+163. June 21
+164. June 22
+165. June 23
+166. June 24
+167. June 25
+168. June 26
+169. June 27
+170. June 28
+171. June 29
+172. July 1
+173. July 2
+174. July 3
+175. July 4
+176. July 5
+177. July 6
+178. July 7
+179. July 8
+180. July 9
+181. July 10
+182. July 11
+183. July 12
+184. July 13
+185. July 14
+186. July 15
+187. July 16
+188. July 17
+189. July 18
+190. July 19
+191. July 20
+192. July 21
+193. July 22
+194. July 23
+195. July 24
+196. July 25
+197. July 26
+198. July 27
+199. July 28
+200. July 29
+201. August 1
+202. August 2
+203. August 3
+204. August 4
+205. August 5
+206. August 6
+207. August 7
+208. August 8
+209. August 9
+210. August 10
+211. August 11
+212. August 12
+213. August 13
+214. August 14
+215. August 15
+216. August 16
+217. August 17
+218. August 18
+219. August 19
+220. August 20
+221. August 21
+222. August 22
+223. August 23
+224. August 24
+225. August 25
+226. August 26
+227. August 27
+228. August 28
+229. August 29
+230. September 1
+231. September 2
+232. September 3
+233. September 4
+234. September 5
+235. September 6
+236. September 7
+237. September 8
+238. September 9
+239. September 10
+240. September 11
+241. September 12
+242. September 13
+243. September 14
+244. September 15
+245. September 16
+246. September 17
+247. September 18
+248. September 19
+249. September 20
+250. September 21
+251. September 22
+252. September 23
+253. September 24
+254. September 25
+255. September 26
+256. September 27
+257. September 28
+258. September 29
+259. October 1
+260. October 2
+261. October 3
+262. October 4
+263. October 5
+264. October 6
+265. October 7
+266. October 8
+267. October 9
+268. October 10
+269. October 11
+270. October 12
+271. October 13
+272. October 14
+273. October 15
+274. October 16
+275. October 17
+276. October 18
+277. October 19
+278. October 20
+279. October 21
+280. October 22
+281. October 23
+282. October 24
+283. October 25
+284. October 26
+285. October 27
+286. October 28
+287. October 29
+288. November 1
+289. November 2
+290. November 3
+291. November 4
+292. November 5
+293. November 6
+294. November 7
+295. November 8
+296. November 9
+297. November 10
+298. November 11
+299. November 12
+300. November 13
+301. November 14
+302. November 15
+303. November 16
+304. November 17
+305. November 18
+306. November 19
+307. November 20
+308. November 21
+309. November 22
+310. November 23
+311. November 24
+312. November 25
+313. November 26
+314. November 27
+315. November 28
+316. November 29
+
+
