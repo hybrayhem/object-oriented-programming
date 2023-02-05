@@ -1,0 +1,550 @@
+javac -g --release 10 DateTime/DayOfYearSet.java
+javac -g --release 10 DateTime/Main.java
+java  DateTime/Main
+
+/* -------------------------------------------------------------------------- */
+/*                          Constructor & Clone Tests                         */
+/* -------------------------------------------------------------------------- */
+
+> Default constructor (empty set)
+ 
+Set ID: 1
+[]
+> Construct by size (empty set)
+ 
+Set ID: 2
+[]
+
+> Construct by vector
+
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 5 April
+ 4. 7 June]
+
+> Clone set 3 into set 4 (from the set upwards)
+
+Set ID: 5
+[1. 2 January
+ 2. 3 February
+ 3. 5 April
+ 4. 7 June]
+
+> Total number of objects: 5
+
+
+/* -------------------------------------------------------------------------- */
+/*                               Function Tests                               */
+/* -------------------------------------------------------------------------- */
+
+> Add two element to Set 1
+
+Set ID: 1
+[1. 5 December
+ 2. 3 February]
+
+> Add one element to Set 3
+
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 5 April
+ 4. 7 June
+ 5. 5 December]
+
+> Remove middle element from Set 3
+
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December]
+Size = 4
+
+> Remove first element from Set 4
+
+Set ID: 5
+[1. 3 February
+ 2. 5 April
+ 3. 7 June]
+Size = 3
+
+
+/* -------------------------------------------------------------------------- */
+/*                             Set Operation Tests                            */
+/* -------------------------------------------------------------------------- */
+
+> Set 1 union Set 3 
+Set ID: 1
+[1. 5 December
+ 2. 3 February]
++
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December]
+=
+Set ID: 6
+[1. 5 December
+ 2. 3 February
+ 3. 2 January
+ 4. 7 June]
+
+> Set 3 union Set 4 
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December]
++
+Set ID: 5
+[1. 3 February
+ 2. 5 April
+ 3. 7 June]
+=
+Set ID: 7
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December
+ 5. 5 April]
+
+> Set 1 difference Set 3 
+Set ID: 1
+[1. 5 December
+ 2. 3 February]
+-
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December]
+=
+Set ID: 8
+[]
+
+> Set 3 difference Set 4 
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December]
+-
+Set ID: 5
+[1. 3 February
+ 2. 5 April
+ 3. 7 June]
+=
+Set ID: 9
+[1. 2 January
+ 2. 5 December]
+
+> Set 1 intersection Set 3 
+Set ID: 1
+[1. 5 December
+ 2. 3 February]
+^
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December]
+=
+Set ID: 10
+[1. 5 December
+ 2. 3 February]
+
+> Set 3 intersection Set 4 
+Set ID: 3
+[1. 2 January
+ 2. 3 February
+ 3. 7 June
+ 4. 5 December]
+^
+Set ID: 5
+[1. 3 February
+ 2. 5 April
+ 3. 7 June]
+=
+Set ID: 11
+[1. 3 February
+ 2. 7 June]
+
+
+/* -------------------------------------------------------------------------- */
+/*                              De Morgan's Tests                             */
+/* -------------------------------------------------------------------------- */
+
+> !(s1 + s2) == !s1 ^ !s2 true
+
+/* -------------------------------------------------------------------------- */
+/*                               Complement Test                              */
+/* -------------------------------------------------------------------------- */
+
+Press 1 to see Complement operation: 1
+> Complement of set 3
+Set ID: 17
+[1. 1 January
+ 2. 3 January
+ 3. 4 January
+ 4. 5 January
+ 5. 6 January
+ 6. 7 January
+ 7. 8 January
+ 8. 9 January
+ 9. 10 January
+ 10. 11 January
+ 11. 12 January
+ 12. 13 January
+ 13. 14 January
+ 14. 15 January
+ 15. 16 January
+ 16. 17 January
+ 17. 18 January
+ 18. 19 January
+ 19. 20 January
+ 20. 21 January
+ 21. 22 January
+ 22. 23 January
+ 23. 24 January
+ 24. 25 January
+ 25. 26 January
+ 26. 27 January
+ 27. 28 January
+ 28. 29 January
+ 29. 30 January
+ 30. 31 January
+ 31. 1 February
+ 32. 2 February
+ 33. 4 February
+ 34. 5 February
+ 35. 6 February
+ 36. 7 February
+ 37. 8 February
+ 38. 9 February
+ 39. 10 February
+ 40. 11 February
+ 41. 12 February
+ 42. 13 February
+ 43. 14 February
+ 44. 15 February
+ 45. 16 February
+ 46. 17 February
+ 47. 18 February
+ 48. 19 February
+ 49. 20 February
+ 50. 21 February
+ 51. 22 February
+ 52. 23 February
+ 53. 24 February
+ 54. 25 February
+ 55. 26 February
+ 56. 27 February
+ 57. 28 February
+ 58. 1 March
+ 59. 2 March
+ 60. 3 March
+ 61. 4 March
+ 62. 5 March
+ 63. 6 March
+ 64. 7 March
+ 65. 8 March
+ 66. 9 March
+ 67. 10 March
+ 68. 11 March
+ 69. 12 March
+ 70. 13 March
+ 71. 14 March
+ 72. 15 March
+ 73. 16 March
+ 74. 17 March
+ 75. 18 March
+ 76. 19 March
+ 77. 20 March
+ 78. 21 March
+ 79. 22 March
+ 80. 23 March
+ 81. 24 March
+ 82. 25 March
+ 83. 26 March
+ 84. 27 March
+ 85. 28 March
+ 86. 29 March
+ 87. 30 March
+ 88. 31 March
+ 89. 1 April
+ 90. 2 April
+ 91. 3 April
+ 92. 4 April
+ 93. 5 April
+ 94. 6 April
+ 95. 7 April
+ 96. 8 April
+ 97. 9 April
+ 98. 10 April
+ 99. 11 April
+ 100. 12 April
+ 101. 13 April
+ 102. 14 April
+ 103. 15 April
+ 104. 16 April
+ 105. 17 April
+ 106. 18 April
+ 107. 19 April
+ 108. 20 April
+ 109. 21 April
+ 110. 22 April
+ 111. 23 April
+ 112. 24 April
+ 113. 25 April
+ 114. 26 April
+ 115. 27 April
+ 116. 28 April
+ 117. 29 April
+ 118. 30 April
+ 119. 1 May
+ 120. 2 May
+ 121. 3 May
+ 122. 4 May
+ 123. 5 May
+ 124. 6 May
+ 125. 7 May
+ 126. 8 May
+ 127. 9 May
+ 128. 10 May
+ 129. 11 May
+ 130. 12 May
+ 131. 13 May
+ 132. 14 May
+ 133. 15 May
+ 134. 16 May
+ 135. 17 May
+ 136. 18 May
+ 137. 19 May
+ 138. 20 May
+ 139. 21 May
+ 140. 22 May
+ 141. 23 May
+ 142. 24 May
+ 143. 25 May
+ 144. 26 May
+ 145. 27 May
+ 146. 28 May
+ 147. 29 May
+ 148. 30 May
+ 149. 31 May
+ 150. 1 June
+ 151. 2 June
+ 152. 3 June
+ 153. 4 June
+ 154. 5 June
+ 155. 6 June
+ 156. 8 June
+ 157. 9 June
+ 158. 10 June
+ 159. 11 June
+ 160. 12 June
+ 161. 13 June
+ 162. 14 June
+ 163. 15 June
+ 164. 16 June
+ 165. 17 June
+ 166. 18 June
+ 167. 19 June
+ 168. 20 June
+ 169. 21 June
+ 170. 22 June
+ 171. 23 June
+ 172. 24 June
+ 173. 25 June
+ 174. 26 June
+ 175. 27 June
+ 176. 28 June
+ 177. 29 June
+ 178. 30 June
+ 179. 1 July
+ 180. 2 July
+ 181. 3 July
+ 182. 4 July
+ 183. 5 July
+ 184. 6 July
+ 185. 7 July
+ 186. 8 July
+ 187. 9 July
+ 188. 10 July
+ 189. 11 July
+ 190. 12 July
+ 191. 13 July
+ 192. 14 July
+ 193. 15 July
+ 194. 16 July
+ 195. 17 July
+ 196. 18 July
+ 197. 19 July
+ 198. 20 July
+ 199. 21 July
+ 200. 22 July
+ 201. 23 July
+ 202. 24 July
+ 203. 25 July
+ 204. 26 July
+ 205. 27 July
+ 206. 28 July
+ 207. 29 July
+ 208. 30 July
+ 209. 31 July
+ 210. 1 August
+ 211. 2 August
+ 212. 3 August
+ 213. 4 August
+ 214. 5 August
+ 215. 6 August
+ 216. 7 August
+ 217. 8 August
+ 218. 9 August
+ 219. 10 August
+ 220. 11 August
+ 221. 12 August
+ 222. 13 August
+ 223. 14 August
+ 224. 15 August
+ 225. 16 August
+ 226. 17 August
+ 227. 18 August
+ 228. 19 August
+ 229. 20 August
+ 230. 21 August
+ 231. 22 August
+ 232. 23 August
+ 233. 24 August
+ 234. 25 August
+ 235. 26 August
+ 236. 27 August
+ 237. 28 August
+ 238. 29 August
+ 239. 30 August
+ 240. 31 August
+ 241. 1 September
+ 242. 2 September
+ 243. 3 September
+ 244. 4 September
+ 245. 5 September
+ 246. 6 September
+ 247. 7 September
+ 248. 8 September
+ 249. 9 September
+ 250. 10 September
+ 251. 11 September
+ 252. 12 September
+ 253. 13 September
+ 254. 14 September
+ 255. 15 September
+ 256. 16 September
+ 257. 17 September
+ 258. 18 September
+ 259. 19 September
+ 260. 20 September
+ 261. 21 September
+ 262. 22 September
+ 263. 23 September
+ 264. 24 September
+ 265. 25 September
+ 266. 26 September
+ 267. 27 September
+ 268. 28 September
+ 269. 29 September
+ 270. 30 September
+ 271. 1 October
+ 272. 2 October
+ 273. 3 October
+ 274. 4 October
+ 275. 5 October
+ 276. 6 October
+ 277. 7 October
+ 278. 8 October
+ 279. 9 October
+ 280. 10 October
+ 281. 11 October
+ 282. 12 October
+ 283. 13 October
+ 284. 14 October
+ 285. 15 October
+ 286. 16 October
+ 287. 17 October
+ 288. 18 October
+ 289. 19 October
+ 290. 20 October
+ 291. 21 October
+ 292. 22 October
+ 293. 23 October
+ 294. 24 October
+ 295. 25 October
+ 296. 26 October
+ 297. 27 October
+ 298. 28 October
+ 299. 29 October
+ 300. 30 October
+ 301. 31 October
+ 302. 1 November
+ 303. 2 November
+ 304. 3 November
+ 305. 4 November
+ 306. 5 November
+ 307. 6 November
+ 308. 7 November
+ 309. 8 November
+ 310. 9 November
+ 311. 10 November
+ 312. 11 November
+ 313. 12 November
+ 314. 13 November
+ 315. 14 November
+ 316. 15 November
+ 317. 16 November
+ 318. 17 November
+ 319. 18 November
+ 320. 19 November
+ 321. 20 November
+ 322. 21 November
+ 323. 22 November
+ 324. 23 November
+ 325. 24 November
+ 326. 25 November
+ 327. 26 November
+ 328. 27 November
+ 329. 28 November
+ 330. 29 November
+ 331. 30 November
+ 332. 1 December
+ 333. 2 December
+ 334. 3 December
+ 335. 4 December
+ 336. 6 December
+ 337. 7 December
+ 338. 8 December
+ 339. 9 December
+ 340. 10 December
+ 341. 11 December
+ 342. 12 December
+ 343. 13 December
+ 344. 14 December
+ 345. 15 December
+ 346. 16 December
+ 347. 17 December
+ 348. 18 December
+ 349. 19 December
+ 350. 20 December
+ 351. 21 December
+ 352. 22 December
+ 353. 23 December
+ 354. 24 December
+ 355. 25 December
+ 356. 26 December
+ 357. 27 December
+ 358. 28 December
+ 359. 29 December
+ 360. 30 December
+ 361. 31 December]
+
