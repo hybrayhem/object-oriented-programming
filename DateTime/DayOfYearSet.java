@@ -234,7 +234,7 @@ public class DayOfYearSet implements Cloneable {
      */
     private boolean contains(final DayOfYear dayOfYear) {
         for (int i = 0; i < used; i++) {
-            if (set[i] == dayOfYear)
+            if (set[i].equals(dayOfYear))
                 return true;
         }
         return false;

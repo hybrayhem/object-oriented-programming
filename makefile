@@ -18,4 +18,4 @@ run: classes
 		$(JVM) $(MAIN)
 
 clean:
-		$(RM) *.class
+		$(RM) DateTime/*.class
