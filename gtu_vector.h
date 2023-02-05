@@ -18,14 +18,14 @@ namespace GTU {
         GTUVector<T>(const GTUVector<T> &copy); // copy constructor
         ~GTUVector<T>();                        // destructor
 
-        bool empty() const override;
-        size_t size() const override;
-        void erase(GTUIteratorConst<T> position) override;
-        void clear() override;
-        GTUIterator<T> begin() override;
-        GTUIterator<T> end() override;
-        GTUIteratorConst<T> constBegin() const override;
-        GTUIteratorConst<T> constEnd() const override;
+        bool empty() const override;                       // Test whether container is empty
+        size_t size() const override;                      // Return container size
+        void erase(GTUIteratorConst<T> position) override; // Erase element pointed by the given iterator
+        void clear() override;                             // Clear all content
+        GTUIterator<T> begin() override;                   // Return iterator to beginning
+        GTUIterator<T> end() override;                     // Return iterator to end
+        GTUIteratorConst<T> constBegin() const override;   // Return a constant iterator to beginning
+        GTUIteratorConst<T> constEnd() const override;     // Return a constant iterator to end
 
         void add(const T &item);
         T &operator[](int index);
@@ -75,16 +75,30 @@ namespace GTU {
 
     template <class T>
     void GTUVector<T>::erase(GTUIteratorConst<T> position) {
+        // iterate with the loop without exceeding the size
+        int i = 0;
+        bool moveBackward = 0;
+        for (GTUIterator<T> it = begin(); it != end() && i < used; ++it, i++) {
+            if (it == position) moveBackward = true;
+
+            if (moveBackward) {
+                it = it + 1;
+            }
+        }
+        used-=1;
+        // if(position - constBegin() <)
         // GTUIteratorConst<T> temp = position;
         // To be implemented
-        for (GTUIteratorConst<T> i = position; i != constEnd(); i++)
-            i = i + 1;
-        used--;
+        // for (GTUIteratorConst<T> i = position; i != constEnd(); i++)
+        //     i = i + 1;
+        // used--;
     }
 
     template <class T>
     void GTUVector<T>::clear() {
         items.reset();
+        used = 0;
+        capacity = 0;
     }
 
     template <class T>

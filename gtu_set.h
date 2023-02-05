@@ -18,14 +18,14 @@ namespace GTU {
         GTUSet<T>(const GTUSet<T> &copy); // copy constructor
         ~GTUSet<T>();                     // destructor
 
-        bool empty() const override;
-        size_t size() const override;
-        void erase(GTUIteratorConst<T> position) override;
-        void clear() override;
-        GTUIterator<T> begin() override;
-        GTUIterator<T> end() override;
-        GTUIteratorConst<T> constBegin() const override;
-        GTUIteratorConst<T> constEnd() const override;
+        bool empty() const override;                       // Test whether container is empty
+        size_t size() const override;                      // Return container size
+        void erase(GTUIteratorConst<T> position) override; // Erase element pointed by the given iterator
+        void clear() override;                             // Clear all content
+        GTUIterator<T> begin() override;                   // Return iterator to beginning
+        GTUIterator<T> end() override;                     // Return iterator to end
+        GTUIteratorConst<T> constBegin() const override;   // Return a constant iterator to beginning
+        GTUIteratorConst<T> constEnd() const override;     // Return a constant iterator to end
 
         void add(const T &item);
         void delete_(int index);
@@ -37,7 +37,7 @@ namespace GTU {
         size_t capacity;
         size_t used;
 
-        int search(const T &value) const; // search value return index or -1 for non-exist
+        bool search(const T &value) const; // search value return index or -1 for non-exist
     };
 
     /* -------------------------------------------------------------------------- */
@@ -77,16 +77,24 @@ namespace GTU {
 
     template <class T>
     void GTUSet<T>::erase(GTUIteratorConst<T> position) {
-        // GTUIteratorConst<T> temp = position;
-        // To be implemented
-        for (GTUIteratorConst<T> i = position; i != constEnd(); i++)
-            i = i + 1;
-        used--;
+        // iterate with the loop without exceeding the size
+        int i = 0;
+        bool moveBackward = 0;
+        for (GTUIterator<T> it = begin(); it != end() && i < used; ++it, i++) {
+            if (it == position) moveBackward = true;
+
+            if (moveBackward) {
+                it = it + 1;
+            }
+        }
+        used -= 1;
     }
 
     template <class T>
     void GTUSet<T>::clear() {
         set.reset();
+        used = 0;
+        capacity = 0;
     }
 
     template <class T>
@@ -111,7 +119,7 @@ namespace GTU {
 
     template <class T>
     void GTUSet<T>::add(const T &item) {
-        if (search(item) != -1) return; // set items must be unique
+        if (search(item)) return; // set items must be unique
 
         if (used >= capacity) {
             std::shared_ptr<T> temp(new T[capacity], std::default_delete<T[]>());
@@ -137,13 +145,41 @@ namespace GTU {
     }
 
     template <class T>
-    GTUSet<T> GTUSet<T>::intersect(const GTUSet<T> &set) const {}
+    GTUSet<T> GTUSet<T>::intersect(const GTUSet<T> &gset) const {
+        GTUSet<T> unionSet(capacity);
+        for (int i = 0; i < used; i++) {
+            if (gset.search(set.get()[i])) {
+                unionSet.add(set.get()[i]);
+            }
+        }
+
+        return unionSet;
+    }
 
     template <class T>
-    GTUSet<T> GTUSet<T>::union_(const GTUSet<T> &set) const {}
+    GTUSet<T> GTUSet<T>::union_(const GTUSet<T> &gset) const {
+        GTUSet<T> unionSet(capacity + gset.capacity);
+        int i;
+        for (i = 0; i < used; i++) {
+            unionSet.add(set.get()[i]);
+        }
+
+        for (int j = 0; j < gset.used; j++) {           // add elements from second set,
+            if (unionSet.search(gset.set.get()[i]) == false) { // no duplicate
+                unionSet.add(gset.set.get()[j]);
+            }
+        }
+
+        return unionSet;
+    }
 
     template <class T>
-    int GTUSet<T>::search(const T &value) const {}
+    bool GTUSet<T>::search(const T &value) const {
+        for (int i = 0; i < used; i++) {
+            if (set.get()[i] == value) return true;
+        }
+        return false;
+    }
 
 }
 #endif
