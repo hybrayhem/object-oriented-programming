@@ -1,0 +1,74 @@
+
+/* -------------------------------------------------------------------------- */
+/*                               TEST GTUVector                               */
+/* -------------------------------------------------------------------------- */
+
+
+Is vector empty: 1. Size: 0
+Adding random integers to vector...
+Is vector EMPTY: 0. Size: 15
+
+> testing RANGE BASED for loop
+2 3 5 4 1 7 6 11 9 10 12 8 15 14 13 
+
+ERASE last item from vector...
+2 3 5 4 1 7 6 11 9 10 12 8 15 14 
+FIND testVector does not contain 50
+
+> TESTING for each loop after sort
+1 3 4 5 5 6 7 8 9 10 11 12 14 15 
+
+after CLEAR is vector empty: 1. Size: 0
+
+/* -------------------------------------------------------------------------- */
+/*                                 TEST GTUSet                                */
+/* -------------------------------------------------------------------------- */
+
+
+Is set empty: 1. Size: 0
+Adding random integers to set...
+Is set EMPTY: 0. Size: 15
+
+> testing RANGE BASED for loop
+2 3 5 4 1 7 6 11 9 10 12 8 15 14 13 
+
+DELETE 4. item from set...
+2 3 5 1 7 6 11 9 10 12 8 15 14 13 
+
+ERASE last item from set...
+2 3 5 1 7 6 11 9 10 12 8 15 14 
+
+FIND testSet does not contain 50
+
+> TESTING for each loop after sort
+1 3 5 5 6 7 8 9 10 11 12 14 15 
+
+after CLEAR is set empty: 1. Size: 0
+
+
+UNION 1 2 3  + 3 6 9  = 1 2 3 6 9 
+
+
+INTERSECT 1 2 3  ^ 3 6 9  = 3 
+
+/* -------------------------------------------------------------------------- */
+/*                                TEST GTUArray                               */
+/* -------------------------------------------------------------------------- */
+
+
+Is array empty: 1. Size: 0
+Adding random integers to array...
+Is array EMPTY: 0. Size: 6
+
+> testing RANGE BASED for loop
+5 4 1 7 12 13 
+
+ERASE last item from array...
+5 4 1 7 12 
+FIND testArray does not contain 50
+
+> TESTING for each loop after sort
+1 5 5 7 12 
+
+after CLEAR is array empty: 1. Size: 0
+
