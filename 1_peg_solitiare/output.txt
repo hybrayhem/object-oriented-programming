@@ -1,0 +1,1452 @@
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 1
+1. Human Player Game
+2. Computer Game
+Please select an operation: 1
+
+> INFO: movement format is [vertical_index][horizontal_index]-[u, d, l or r]
+> ex: C2-L, A5-U
+> type 0 for exit the game
+
+
+   a b c d e f g 
+1      P P P    
+2    P P P P P  
+3  P P P . P P P
+4  P P P P P P P
+5  P P P P P P P
+6    P P P P P  
+7      P P P    
+
+Enter your command(C2-L, A5-U): D5-U
+   a b c d e f g 
+1      P P P    
+2    P P P P P  
+3  P P P P P P P
+4  P P P . P P P
+5  P P P . P P P
+6    P P P P P  
+7      P P P    
+
+Enter your command(C2-L, A5-U): F4-L
+   a b c d e f g 
+1      P P P    
+2    P P P P P  
+3  P P P P P P P
+4  P P P P . . P
+5  P P P . P P P
+6    P P P P P  
+7      P P P    
+
+Enter your command(C2-L, A5-U): 0
+
+Game over.
+34 points.
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 2
+1. Human Player Game
+2. Computer Game
+Please select an operation: 2
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P . P P P P
+6  P P P P P P P P P
+7        P P P      
+8        P P P      
+9        P P P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P P P P P P
+6  P P P P . P P P P
+7        P . P      
+8        P P P      
+9        P P P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P P P P P P
+6  P P P P . P P P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P P P P P P
+6  P P P P P . . P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P P P P P P
+6  P P P . . P . P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P P P
+5  P P P P P P P P P
+6  P . . P . P . P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P . P P
+5  P P P P P P . P P
+6  P . . P . P P P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P . P P
+5  P P P P P P P . .
+6  P . . P . P P P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P P P P P P . .
+5  P P P P P P P . .
+6  P . . P . P P P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P . P P P P . .
+5  P P . P P P P . .
+6  P . P P . P P P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P . P P P P . .
+5  P P . P P P P . .
+6  P P . . . P P P P
+7        P P P      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P . P P P P . .
+5  P P . P P P P . .
+6  P P . P . P P P P
+7        . P P      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P . P . P P . .
+5  P P . P . P P . .
+6  P P . P P P P P P
+7        . P P      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P . P . P P . .
+5  P P . P . P P . .
+6  P P . P P P P P P
+7        P . .      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P P P      
+3        P P P      
+4  P P . P . P P . .
+5  P P . P . P P . .
+6  P P P . . P P P P
+7        P . .      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P P . P P P P . .
+5  P P . P . P P . .
+6  P P P . . P P P P
+7        P . .      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P P . P P P P . .
+5  P P . P . . . P .
+6  P P P . . P P P P
+7        P . .      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P P . P P P P . .
+5  P P . P . . . P .
+6  P . . P . P P P P
+7        P . .      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P P . P P P P P .
+5  P P . P . . . . .
+6  P . . P . P P . P
+7        P . .      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . P P P P P .
+5  P . . P . . . . .
+6  P P . P . P P . P
+7        P . .      
+8        . . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . P P P P P .
+5  P . . P . . . . .
+6  P P . . . P P . P
+7        . . .      
+8        P . P      
+9        P . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . P P P P P .
+5  P . . P . . . . .
+6  P P . . . P P . P
+7        P . .      
+8        . . P      
+9        . . P      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . P P P P P .
+5  P . . P . . . . .
+6  P P . . . P P . P
+7        P . P      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . P P P P P .
+5  P . . P . P . . .
+6  P P . . . . P . P
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . P P P P P .
+5  P . . P . P . . .
+6  . . P . . . P . P
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . . P P P P .
+5  P . . . . P . . .
+6  . . P P . . P . P
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . . P P P P .
+5  P . . . . P . . .
+6  . P . . . . P . P
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . . P P . . P
+5  P . . . . P . . .
+6  . P . . . . P . P
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . . P . . . P
+5  P . . . . . . . .
+6  . P . . . P P . P
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . . P . . . P
+5  P . . . . . . . .
+6  . P . . . . . P P
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        P . P      
+3        P . P      
+4  P . . . P . . . P
+5  P . . . . . . . .
+6  . P . . . . P . .
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        . . P      
+3        . . P      
+4  P . . P P . . . P
+5  P . . . . . . . .
+6  . P . . . . P . .
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        . . P      
+3        . . P      
+4  P . P . . . . . P
+5  P . . . . . . . .
+6  . P . . . . P . .
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        . . .      
+3        . . .      
+4  P . P . . P . . P
+5  P . . . . . . . .
+6  . P . . . . P . .
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        . . .      
+3        . . .      
+4  . . P . . P . . P
+5  . . . . . . . . .
+6  P P . . . . P . .
+7        P . .      
+8        . . .      
+9        . . .      
+
+   a b c d e f g h i 
+1        P P P      
+2        . . .      
+3        . . .      
+4  . . P . . P . . P
+5  . . . . . . . . .
+6  . . P . . . P . .
+7        P . .      
+8        . . .      
+9        . . .      
+
+
+Game over.
+9 points.
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 3
+1. Human Player Game
+2. Computer Game
+Please select an operation: 2
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P P P . P P P P
+6  P P P P P P P P
+7      P P P      
+8      P P P      
+9      P P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P . . P P P P P
+6  P P P P P P P P
+7      P P P      
+8      P P P      
+9      P P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P . P P P P P P
+6  P P . P P P P P
+7      . P P      
+8      P P P      
+9      P P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P . P P P P P P
+6  P P . P P P P P
+7      P P P      
+8      . P P      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P P . . P P P P
+6  P P . P P P P P
+7      P P P      
+8      . P P      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P P . . P P P P
+6  P P . P P P P P
+7      P P P      
+8      P . .      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P P . . P P P P
+6  P P . . P P P P
+7      P . P      
+8      P P .      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P P P P P P P
+5  P P . P . . P P
+6  P P . . P P P P
+7      P . P      
+8      P P .      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P .      
+4  P P P P . P P P
+5  P P . P P . P P
+6  P P . . P P P P
+7      P . P      
+8      P P .      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P .      
+4  P P . . P P P P
+5  P P . P P . P P
+6  P P . . P P P P
+7      P . P      
+8      P P .      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P . . . P P P
+5  P P . P . . P P
+6  P P . . P P P P
+7      P . P      
+8      P P .      
+9      . P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P . . . P P P
+5  P P . P . . P P
+6  P P . . P P P P
+7      . . P      
+8      . P .      
+9      P P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P . . . P P P
+5  P P . P . . P P
+6  P P . . . P P P
+7      . . .      
+8      . P P      
+9      P P P      
+
+   a b c d e f g h 
+1      P P P      
+2      P P P      
+3      P P P      
+4  P P . . . P P P
+5  P P . P . . P P
+6  P P . . . P P P
+7      . . P      
+8      . P .      
+9      P P .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . P      
+3      P . P      
+4  P P . P . P P P
+5  P P . P . . P P
+6  P P . . . P P P
+7      . . P      
+8      . P .      
+9      P P .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . P      
+3      P . P      
+4  P P . P . P P P
+5  P P . P . . P P
+6  P P . . . P P P
+7      . P P      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P . P P P P P
+5  P P . P . . P P
+6  P P . . . P P P
+7      . P P      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P . . P P P P
+5  P P . . . . P P
+6  P P . P . P P P
+7      . P P      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P . . P P P P
+5  P P . . . . P P
+6  . . P P . P P P
+7      . P P      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P . . P P P P
+5  P P . . . . P P
+6  . . P P P . . P
+7      . P P      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P . . P P P P
+5  P P . . . . P P
+6  . . P . . P . P
+7      . P P      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P . . P P P P
+5  P P . . . . P P
+6  . . P . . P . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P . . P P P P
+5  . . P . . . P P
+6  . . P . . P . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P P . P P P P
+5  . . . . . . P P
+6  . . . . . P . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P P . P P . P
+5  . . . . . . . P
+6  . . . . . P P P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  P P P . P P . P
+5  . . . . . . . P
+6  . . . . P . . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      . . .      
+4  P P . . P P . P
+5  . . P . . . . P
+6  . . . . P . . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      . . .      
+4  . . P . P P . P
+5  . . P . . . . P
+6  . . . . P . . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  . . . . P P . P
+5  . . . . . . . P
+6  . . . . P . . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      P . .      
+3      P . .      
+4  . . . P . . . P
+5  . . . . . . . P
+6  . . . . P . . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      . . .      
+3      . . .      
+4  . . P P . . . P
+5  . . . . . . . P
+6  . . . . P . . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+   a b c d e f g h 
+1      P P P      
+2      . . .      
+3      . . .      
+4  . . . . P . . P
+5  . . . . . . . P
+6  . . . . P . . P
+7      P . .      
+8      . . .      
+9      P . .      
+
+
+Game over.
+10 points.
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 4
+1. Human Player Game
+2. Computer Game
+Please select an operation: 2
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  P P P . P P P
+5  P P P P P P P
+6      P P P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  P P P P . . P
+5  P P P P P P P
+6      P P P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  P P . . P . P
+5  P P P P P P P
+6      P P P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  . . P . P . P
+5  P P P P P P P
+6      P P P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  . . P P P . P
+5  P P P . P P P
+6      P . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  . P . . P . P
+5  P P P . P P P
+6      P . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  . P P . P . P
+5  P P . . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  . . . P P . P
+5  P P . . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  . . . P P . P
+5  . . P . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      P P P    
+3  P P P P P P P
+4  . . . . . P P
+5  . . P . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . P P    
+3  P P . P P P P
+4  . . P . . P P
+5  . . P . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . P P    
+3  P P P P P P P
+4  . . . . . P P
+5  . . . . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . . P    
+3  P P P . P P P
+4  . . . P . P P
+5  . . . . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . . .    
+3  P P P . . P P
+4  . . . P P P P
+5  . . . . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . . .    
+3  P . . P . P P
+4  . . . P P P P
+5  . . . . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . P .    
+3  P . . . . P P
+4  . . . . P P P
+5  . . . . P P P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . P .    
+3  P . . . . P P
+4  . . . . P P P
+5  . . . P . . P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . P .    
+3  P . . . . P P
+4  . . . P . . P
+5  . . . P . . P
+6      . . P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . P .    
+3  P . . . . P P
+4  . . . . . . P
+5  . . . . . . P
+6      . P P    
+7      P P P    
+
+   a b c d e f g 
+1      P P P    
+2      . P .    
+3  P . . . . P P
+4  . . . . . . P
+5  . . . P . . P
+6      . . P    
+7      P . P    
+
+   a b c d e f g 
+1      P P P    
+2      . P .    
+3  P . . . P . .
+4  . . . . . . P
+5  . . . P . . P
+6      . . P    
+7      P . P    
+
+   a b c d e f g 
+1      P P P    
+2      . P .    
+3  P . . . P . P
+4  . . . . . . .
+5  . . . P . . .
+6      . . P    
+7      P . P    
+
+   a b c d e f g 
+1      P . P    
+2      . . .    
+3  P . . P P . P
+4  . . . . . . .
+5  . . . P . . .
+6      . . P    
+7      P . P    
+
+   a b c d e f g 
+1      P . P    
+2      . . .    
+3  P . . . . P P
+4  . . . . . . .
+5  . . . P . . .
+6      . . P    
+7      P . P    
+
+   a b c d e f g 
+1      P . P    
+2      . . .    
+3  P . . . P . .
+4  . . . . . . .
+5  . . . P . . .
+6      . . P    
+7      P . P    
+
+   a b c d e f g 
+1      P . P    
+2      . . .    
+3  P . . . P . .
+4  . . . . . . .
+5  . . . P P . .
+6      . . .    
+7      P . .    
+
+   a b c d e f g 
+1      P . P    
+2      . . .    
+3  P . . . P . .
+4  . . . . . . .
+5  . . . . . P .
+6      . . .    
+7      P . .    
+
+
+Game over.
+6 points.
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 5
+1. Human Player Game
+2. Computer Game
+Please select an operation: 2
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P . P P P P
+6    P P P P P P P  
+7      P P P P P    
+8        P P P      
+9          P        
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P P P P P P
+6    P P P . P P P  
+7      P P . P P    
+8        P P P      
+9          P        
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P P P P P P
+6    P . . P P P P  
+7      P P . P P    
+8        P P P      
+9          P        
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P P P P P P
+6    P . . P P P P  
+7      P P P P P    
+8        P . P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P P P P P  
+5  P P P P P P P P P
+6    P . . . P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P . P P P  
+5  P P P P . P P P P
+6    P . . P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P . P P P  
+5  P P P P P . . P P
+6    P . . P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P P P      
+3      P P P P P    
+4    P P P . P P P  
+5  P P P P P . P . .
+6    P . . P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P . P P    
+4    P P P P P P P  
+5  P P P P P . P . .
+6    P . . P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P . P P    
+4    P P . P P P P  
+5  P P P . P . P . .
+6    P . P P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P . P P    
+4    . . P P P P P  
+5  P P P . P . P . .
+6    P . P P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P . P P    
+4    . P . . P P P  
+5  P P P . P . P . .
+6    P . P P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P P . .    
+4    . P . . P P P  
+5  P P P . P . P . .
+6    P . P P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P P . P    
+4    . P . . P . P  
+5  P P P . P . . . .
+6    P . P P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P P . P    
+4    . P . . P . P  
+5  P . . P P . . . .
+6    P . P P P P P  
+7      P P . P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P P . P    
+4    . P . . P . P  
+5  P . . P P . . . .
+6    P . P P P P P  
+7      . . P P P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P P . P    
+4    . P . . P . P  
+5  P . . P P . . . .
+6    P . P P P P P  
+7      . P . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P P . P    
+4    . P P . P . P  
+5  P . . . P . . . .
+6    P . . P P P P  
+7      . P . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      P P P . P    
+4    . P P . P . P  
+5  P . . . P . . . .
+6    P . P . . P P  
+7      . P . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      . P P . P    
+4    . . P . P . P  
+5  P . P . P . . . .
+6    P . P . . P P  
+7      . P . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      . P P . P    
+4    . . P . P . P  
+5  P . P . P . . . .
+6    P . P . P . .  
+7      . P . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      . . . P P    
+4    . . P . P . P  
+5  P . P . P . . . .
+6    P . P . P . .  
+7      . P . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      . . P . .    
+4    . . P . P . P  
+5  P . P . P . . . .
+6    P . P . P . .  
+7      . P . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      . . P . .    
+4    . . P . P . P  
+5  P . P P P . . . .
+6    P . . . P . .  
+7      . . . . P    
+8        P P P      
+9          .        
+
+   a b c d e f g h i 
+1          P        
+2        P . P      
+3      . . P . .    
+4    . . . . P . P  
+5  P . P . P . . . .
+6    P . P . P . .  
+7      . . . . P    
+8        P P P      
+9          .        
+
+
+Game over.
+16 points.
+
+
+$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
+
+
+▧ ▧ ▧ Peg Solitaire ▧ ▧ ▧
+
+> Select the board 1-6: 6
+1. Human Player Game
+2. Computer Game
+Please select an operation: 2
+   a b c d e 
+1  .        
+2  P P      
+3  P P P    
+4  P P P P  
+5  P P P P P
+
+   a b c d e 
+1  P        
+2  . P      
+3  . P P    
+4  P P P P  
+5  P P P P P
+
+   a b c d e 
+1  P        
+2  . P      
+3  P P P    
+4  . P P P  
+5  . P P P P
+
+   a b c d e 
+1  P        
+2  . P      
+3  P P P    
+4  . P P P  
+5  P . . P P
+
+   a b c d e 
+1  P        
+2  . P      
+3  P . P    
+4  . . P P  
+5  P P . P P
+
+   a b c d e 
+1  P        
+2  . P      
+3  P . P    
+4  . . P P  
+5  P P P . .
+
+   a b c d e 
+1  P        
+2  . P      
+3  P . P    
+4  . . P P  
+5  P . . P .
+
+   a b c d e 
+1  P        
+2  . P      
+3  P . .    
+4  . . . P  
+5  P . P P .
+
+   a b c d e 
+1  P        
+2  . P      
+3  P . .    
+4  . . . P  
+5  P P . . .
+
+   a b c d e 
+1  P        
+2  . P      
+3  P . .    
+4  . . . P  
+5  . . P . .
+
+
+Game over.
+5 points.
+
